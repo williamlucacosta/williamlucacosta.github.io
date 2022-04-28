@@ -1,6 +1,12 @@
 body, html {
     width: 100vw;
+    height: 100vh;
     padding: 0;
+}
+.particles {
+    position: absolute;
+    background-color: rgb(19, 22, 26);
+    z-index: -1;
 }
 .page {
     background-image: linear-gradient(to right top, #1c202b, #1d222c, #1f232e, #20252f, #222730);
@@ -16,23 +22,16 @@ body, html {
     justify-content: space-around;
     border-radius: 8px;
     box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.5);
+    background-color: #191b21;
 }
-/* .page .navbar {
-    margin-top: 11px;
-    padding: 10px;
-    text-align: center;
-    width: 835px;
-    justify-content: space-around;
-    border-radius: 8px;
-    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.5);
-} */
+
 .page .navbar__option {
     text-decoration: none;
     font-size: 1.4rem;
 }
 .page .navbar__option:hover {
     transform: scale(1.1);
-    color: #219ee6;
+    color: #21cfe6;
 }
 .page .user {
     height: 200px;
@@ -77,8 +76,9 @@ body, html {
     cursor: pointer;
 }
 .page .content {
+    opacity: 0.90;
     transform: translate(0, 15%);
-    filter: drop-shadow(10px 10px 155px rgba(0, 0, 0, 1));
+    filter: drop-shadow(10px 10px 100px #000000);
     width: 100%;
 }
 .page .content__shape {
@@ -100,11 +100,6 @@ body, html {
 .page .content__description {
     width: 85%;
     font-size: 1.7rem;
-}
-
-canvas {
-    width: 100%;
-    height: 100%;
 }
 
 /* SUPPORT CLASSES */
