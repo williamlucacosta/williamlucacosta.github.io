@@ -7,48 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/style.css">
+    <script src="./js/router.js"></script>
     <script src="./js/script.js" defer></script>
-    <script src="./particles.js" defer></script>
-    <script src="./app.js" defer></script>
+    <script src="./js/particles.js" defer></script>
+    <script src="./js/app-particles.js" defer></script>
 
     <title>Luca Costa</title>
    
 </head>
-    <body class="page | no-margin display-flex-centered flex-direction-column">
+    <body class="page | bg-color-primary | no-margin display-flex-centered flex-direction-column">
         <div id="particles-js" class="particles"></div>
-            <!-- NAVBAR -->
-            <nav class="navbar | display-flex-centered">
-                <a class="navbar__option | custom-transition--1 color-primary" href="">Home</a>
-                <a class="navbar__option | custom-transition--1 color-primary" href="">About</a>
-                <a class="navbar__option | custom-transition--1 color-primary" href="">Skills</a>
-                <a class="navbar__option | custom-transition--1 color-primary" href="">Experience</a>
-                <a class="navbar__option | custom-transition--1 color-primary" href="">Portfolio</a>
-                <a class="navbar__option | custom-transition--1 color-primary" href="">Contacts</a>
-            </nav>
+        <!-- NAVBAR -->
+        <nav class="navbar | bg-color-secondary | display-flex-centered">
+            <a class="navbar__option | custom-transition--1 color-primary" onclick="route()" href="/">Home</a>
+            <a class="navbar__option | custom-transition--1 color-primary" onclick="route()" href="/curriculum">Curriculum</a>
+            <a class="navbar__option | custom-transition--1 color-primary" onclick="route()" href="/knowledge">Knowledge</a>
+            <a class="navbar__option | custom-transition--1 color-primary" onclick="route()" href="/portfolio">Portfolio</a>
+            <a class="navbar__option | custom-transition--1 color-primary" onclick="route()" href="/journal">Journal</a>
+        </nav>
 
-            <!-- USER INFO -->
-            <section class="user | display-flex-centered width-full">
-                <img class="user__avatar | custom-transition--1 height-full" src="images/avatar.jpg" alt="AVATAR">
-                <div class="user__info | height-full">
-                    <h3 class="user__info__name | no-margin color-primary">Luca Costa</h3> 
-                    <p class="user__info__description | no-margin color-secondary">PROGRAMMER</p>
-                    <div class="user__info__socials | display-flex-centered width-full">
-                        <img class="user__info__socials__icon | custom-transition--1" src="images/linkedin.png" alt="">
-                        <img class="user__info__socials__icon | custom-transition--1" src="images/youtube.png" alt="">
-                        <img class="user__info__socials__icon | custom-transition--1" src="images/github.png" alt="">
-                        <img class="user__info__socials__icon | custom-transition--1" src="images/twitter.png" alt="">
-                    </div>
+        <!-- USER INFO -->
+        <section class="user | display-flex-centered">
+            <img class="user__avatar | custom-transition--1 height-full" src="images/avatar.jpg" alt="AVATAR">
+            <div class="user__info | height-full">
+                <h3 class="user__info__name | no-margin color-primary">Luca Costa</h3> 
+                <p class="user__info__description | no-margin color-secondary">PROGRAMMER</p>
+                <div class="user__info__socials | display-flex-centered width-full">
+                    <img class="user__info__socials__icon | custom-transition--1" src="images/linkedin.png" alt="">
+                    <img class="user__info__socials__icon | custom-transition--1" src="images/youtube.png" alt="">
+                    <img class="user__info__socials__icon | custom-transition--1" src="images/github.png" alt="">
+                    <img class="user__info__socials__icon | custom-transition--1" src="images/twitter.png" alt="">
+                    <img class="user__info__socials__icon | custom-transition--1" src="images/cv.png" alt="">
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <div></div>
-
-            <!-- CONTENTS -->
-            <div class="content">
-                <div class="content__shape | content__shape--type1 content__shape--dark display-flex-centered flex-direction-column">
-                    <h1 class="content__title | no-margin color-primary">WHY</h1>
-                    <p class="content__description | no-margin color-secondary">Everything I do, I believe in challenging the real problems of the world. I believe in thinking differently to let even the smallest difference take on meaning...</p>
-                </div>
-            </div>        
+        <!-- CONTENTS -->
+        <div id="main-page" class="content">
+            <!-- <div class="content__shape | bg-color-secondary | content__shape--type1 | display-flex-centered flex-direction-column">
+                <h1 class="content__title | no-margin color-primary">WHY</h1>
+                <p class="content__description | no-margin color-secondary">Everything I do, I believe in challenging the real problems of the world. I believe in thinking differently to let even the smallest difference take on meaning...</p>
+            </div> -->
+        </div>
     </body>
 </html>

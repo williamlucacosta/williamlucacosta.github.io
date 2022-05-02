@@ -1,6 +1,5 @@
 const canvas = document.querySelector(".particles");
 FitCanvasToContainer(canvas);
-console.log(canvas);
 
 function FitCanvasToContainer(canvas) {
     const parent = canvas.parentNode;
