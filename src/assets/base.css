@@ -1,0 +1,80 @@
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+
+/* W3.CSS 4.15 December 2020 by Jan Egil and Borge Refsnes */
+html {
+  box-sizing:border-box;
+  overflow-x: hidden;
+}
+*,*:before,*:after {
+  box-sizing:inherit;
+}
+
+body {       
+  font-family: 'SF Pro Display', sans-serif;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  /* background-image: radial-gradient(#2f3f50, #0b1219); */
+  /* background-image: radial-gradient(#213f5a, #040c16); */
+  /* background-image: radial-gradient(#213f5a, #000f21); */
+  /* background-color: #131f2a; */
+
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+#myVideo {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: fill;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -4;
+}
+#videoMask {
+  background-color: #030609;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+
+  animation: fadeIn 3s ease-in-out forwards;
+  z-index: -3;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+  background: #020A14;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(217, 217, 217, 0.779);
+  transition: 0.3s ease-in-out;
+  border-radius: 7.5px;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(217, 217, 217, 0.9);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0.98;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}

@@ -1,0 +1,519 @@
+{
+    "about": [
+      "Creating games goes beyond entertainment, it's an art form that evokes emotions on a profound level, similar to how a music instrument conveys feelings through its vibrations...",
+      "In game development we orchestrate a symphony of sensory experiences in which every element, texture, character's animation, carries a part of us that forms a deeper connection with players, those connections acts as a bridge that unites people from all corners of the world under an alternate realm, even when the game fades away on time, conveyed emotions remain eternally alive...",
+      "All of this should drive us forward and higher, despite the challenges we face in our careers, i fermally think that every effort, sleepless night, and sacrifice we make is worth it.",
+      "Game development holds also immense responsibility, with the power to shape experiences and influence players' lives, we must prioritize ethics, inclusivity, and well being shaping a positive and meaningful gaming landscape.",
+      "William Luca Costa"
+    ],
+    "experience": [
+        {
+            "companyName": "Beat The Game (Autonomous)",
+            "companyIconUrl": "https://play-lh.googleusercontent.com/Q8x9mNRGjk96i0DCKm9rog6pwBz-q7EHdIxob-gquswDgbk3rEapKdkBDqbMZns4Qc8g=s48-rw",
+            "description": "Solo Development and publishment of Android Game Red Shift, I learned to design an engagin gameplay, build interactive environments, implement game logic with C#, manage resources, optimize performace, troubleshoot bugs, and create imersive experiences with sound, graphics, animations, etcs...",
+            "startDate": "Sept. 2020",
+            "endDate": "Nov. 2020"
+        }
+    ],
+    "skills": [
+        {
+            "title": "Soft Skills",
+            "description": "Essential interpersonal and cognitive abilities that complement technical expertise in teamwork and projects outcomes.",
+            "iconUrl": "https://cdn-icons-png.flaticon.com/512/3078/3078951.png",
+            "content": [
+              {
+                "title": "Communication",
+                "description": "Strong verbal and written communication skills.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/1078/1078011.png",
+                "source": "WORK EXPERIENCE"
+              },
+              {
+                "title": "Leadership",
+                "description": "Ability to lead and motivate teams effectively.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/860/860380.png",
+                "source": "WORK EXPERIENCE"
+              },
+              {
+                "title": "Teamwork",
+                "description": "Skilled in collaborating and working effectively in a team.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/2058/2058768.png",
+                "source": "WORK EXPERIENCE"
+              },
+              {
+                "title": "Problem-Solving",
+                "description": "Strong analytical and problem-solving skills to overcome challenges in game development.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/2896/2896405.png",
+                "source": "WORK EXPERIENCE"
+              },
+              {
+                "title": "Adaptability",
+                "description": "Ability to quickly adapt to new technologies, tools, and project requirements.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/10484/10484545.png",
+                "source": "WORK EXPERIENCE"
+              },
+              {
+                "title": "Creativity",
+                "description": "Ability to think outside the box and come up with innovative ideas for game development.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/1496/1496034.png",
+                "source": "PERSONAL TRAIT"
+              },
+              {
+                "title": "Resilience",
+                "description": "Ability to remain positive and bounce back from challenges in game development.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/5592/5592487.png",
+                "source": "PERSONAL TRAIT"
+                },
+              {
+                "title": "Time Management",
+                "description": "Effective management of time and prioritization of tasks to meet project deadlines.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/3286/3286768.png",
+                "source": "WORK EXPERIENCE"
+              },
+              {
+                "title": "Attention to Detail",
+                "description": "Keen eye for detail to ensure quality and accuracy in game development.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/2642/2642203.png",
+                "source": "WORK EXPERIENCE"
+              },
+              {
+                "title": "Innovation",
+                "description": "Passion for exploring new ideas, technologies, and trends in the gaming industry to drive innovation.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/1323/1323780.png",
+                "source": "PERSONAL TRAIT"
+              },
+              {
+                "title": "Critical Thinking",
+                "description": "Ability to evaluate and analyze information critically to make informed decisions in game development.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/5518/5518005.png",
+                "source": "EDUCATION"
+              },
+              {
+                "title": "Emotional Intelligence",
+                "description": "Ability to understand and manage emotions effectively, fostering positive relationships and teamwork in game development.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/8982/8982001.png",
+                "source": "PERSONAL TRAIT"
+              },
+              {
+                "title": "User Experience",
+                "description": "Focus on creating engaging and intuitive user experiences to enhance player satisfaction in game development.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/8920/8920512.png",
+                "source": "WORK EXPERIENCE"
+              }
+            ]
+        },                  
+        {
+            "title": "Interests",
+            "description": "Diverse hobbies and passions that fuel creativity, curiosity, and personal growth. these interests inspire and enrich the journey of game development.",
+            "iconUrl": "https://cdn-icons-png.flaticon.com/512/1706/1706709.png",
+            "content": [
+              {
+                "title": "Basketball",
+                "description": "Passionate about playing and following basketball.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/33/33838.png",
+                "source": "HOBBY"
+              },
+              {
+                "title": "Research",
+                "description": "Interest in exploring and conducting research in various areas related to game development.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/626/626947.png",
+                "source": "PERSONAL INTEREST"
+              },
+              {
+                "title": "Video Game Development",
+                "description": "Enthusiasm for all aspects of video game development, including design, programming, and storytelling.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/2029/2029520.png",
+                "source": "PASSION"
+              },
+              {
+                "title": "Puzzles",
+                "description": "Enjoy solving puzzles and brain teasers, applying logical thinking and problem-solving skills.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/786/786285.png",
+                "source": "HOBBY"
+              },
+              {
+                "title": "Digital Video Editing",
+                "description": "Interest in editing and creating visually appealing videos using digital editing tools.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/7263/7263719.png",
+                "source": "PERSONAL INTEREST"
+              },
+              {
+                "title": "Foreign Cultures",
+                "description": "Fascination with learning about and experiencing different cultures from around the world.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/761/761488.png",
+                "source": "PERSONAL INTEREST"
+              },
+              {
+                "title": "Cosmology",
+                "description": "Curiosity about the universe, its origins, and the study of celestial objects and phenomena.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/6813/6813730.png",
+                "source": "PERSONAL INTEREST"
+              },
+              {
+                "title": "Innovation Technology",
+                "description": "Interest in exploring and keeping up with the latest technological innovations and advancements.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/9973/9973452.png",
+                "source": "PERSONAL INTEREST"
+              },
+              {
+                "title": "Chess",
+                "description": "Passion for playing chess and strategic thinking.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/2500/2500133.png",
+                "source": "HOBBY"
+              }
+            ]
+        },
+        {
+          "title": "Certifications",
+          "description": "Certified knoledges and abilities.",
+          "iconUrl": "https://cdn-icons-png.flaticon.com/512/3000/3000745.png",
+          "content": [
+            {
+              "title": "Nand To Tetris P.1",
+              "description": "[COURSERA] - Build a Modern Computer from First Principles: Nand to Tetris Part I (project-centered course)",
+              "cover": "https://cdn-icons-png.flaticon.com/512/2432/2432574.png"
+            },
+            {
+              "title": "Nand To Tetris P.2",
+              "description": "[COURSERA] - Build a Modern Computer from First Principles: Nand to Tetris Part II (project-centered course)",
+              "cover": "https://cdn-icons-png.flaticon.com/512/2432/2432574.png"
+            }
+          ]
+        },
+        {
+          "title": "Courses",
+          "description": "Work in Progress courses.",
+          "iconUrl": "https://cdn-icons-png.flaticon.com/512/3413/3413520.png",
+          "content": [
+            {
+              "title": "Blender Character Creator",
+              "description": "[UDEMY] - Blender Character Creator for Video Games Design",
+              "cover": "https://cdn-icons-png.flaticon.com/512/2818/2818102.png"
+            },
+            {
+              "title": "Unreal Engine 5 C++",
+              "description": "[UDEMY] - Unreal Engine 5 C++ The Ultimate Game Developer Course",
+              "cover": "https://cdn-icons-png.flaticon.com/512/74/74897.png"
+            }
+          ]
+        },
+        {
+            "title": "Programming",
+            "description": "Ability to write code for software and video game development.",
+            "iconUrl": "https://cdn-icons-png.flaticon.com/512/711/711284.png",
+            "content": [
+                {
+                "title": "C++",
+                "description": "Strong knowledge of C++ programming language.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/74/74897.png",
+                "source": "EDUCATION"
+                },
+                {
+                "title": "Python",
+                "description": "Strong knowledge of Python.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/1822/1822921.png",
+                "source": "WORK EXPERIENCE"
+                },
+                {
+                "title": "HTML",
+                "description": "Proficient in HTML for web development.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/1051/1051328.png",
+                "source": "SELF-TAUGHT"
+                },
+                {
+                "title": "CSS",
+                "description": "Proficient in CSS for web styling.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/732/732007.png",
+                "source": "SELF-TAUGHT"
+                },
+                {
+                "title": "JavaScript",
+                "description": "Experience with JavaScript for web development.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/721/721791.png",
+                "source": "SELF-TAUGHT"
+                },
+                {
+                  "title": "TypeScript",
+                  "description": "Experience with TypeScript for web development.",
+                  "cover": "https://cdn-icons-png.flaticon.com/512/8300/8300772.png",
+                  "source": "SELF-TAUGHT"
+                },
+                {
+                  "title": "Vue JS",
+                  "description": "Experience with Vue JS Framework for web development.",
+                  "cover": "https://cdn-icons-png.flaticon.com/512/5069/5069994.png",
+                  "source": "SELF-TAUGHT"
+                },
+                {
+                  "title": "C#",
+                  "description": "Experience with C# programming language.",
+                  "cover": "https://cdn-icons-png.flaticon.com/512/104/104663.png",
+                  "source": "EDUCATION"
+                },
+                {
+                  "title": "Java",
+                  "description": "Experience with Java programming language.",
+                  "cover": "https://cdn-icons-png.flaticon.com/512/152/152760.png",
+                  "source": "EDUCATION"
+                }
+            ]
+        },
+        {
+            "title": "Game Design",
+            "description": "Ability to conceive and design fun and engaging games.",
+            "iconUrl": "https://cdn-icons-png.flaticon.com/512/3159/3159310.png",
+            "content": [
+                {
+                    "title": "Mechanics Design",
+                    "description": "Knowledge of game mechanics design and balance.",
+                    "cover": "https://cdn-icons-png.flaticon.com/512/1900/1900314.png",
+                    "source": "EDUCATION"
+                },
+                {
+                    "title": "Level Design",
+                    "description": "Experience with level design and creating interesting game worlds.",
+                    "cover": "https://cdn-icons-png.flaticon.com/512/2029/2029554.png",
+                    "source": "WORK EXPERIENCE"
+                }
+            ]
+        },
+        {
+            "title": "Graphics and Animation",
+            "description": "Ability to create 2D and 3D graphics, animations, and visual effects for games.",
+            "iconUrl": "https://cdn-icons-png.flaticon.com/512/3169/3169330.png",
+            "content": [
+              {
+                "title": "3D Modelling",
+                "description": "Experience with 3D modelling software like Blender or Fusion 360.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/2818/2818102.png",
+                "source": "EDUCATION"
+              },
+              {
+                "title": "Substance Painter",
+                "description": "Experience with Substance Painter for texturing 3D models.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/9814/9814810.png",
+                "source": "SELF-TAUGHT"
+              },
+              {
+                "title": "Substance Designer",
+                "description": "Experience with Substance Designer for procedural texture creation.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/9814/9814769.png",
+                "source": "SELF-TAUGHT"
+              }
+            ]
+        },
+        {
+            "title": "Audio",
+            "description": "Ability to create sound effects, music, and voiceovers for games.",
+            "iconUrl": "https://cdn-icons-png.flaticon.com/512/6707/6707113.png",
+            "content": [
+              {
+                "title": "Sound Design",
+                "description": "Experience with sound design and audio mixing.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/9252/9252373.png",
+                "source": "WORK EXPERIENCE"
+              },
+              {
+                "title": "Music Composition",
+                "description": "Knowledge of music composition and theory.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/4424/4424517.png",
+                "source": "SELF-TAUGHT"
+              },
+              {
+                "title": "LMMS",
+                "description": "Proficient in using LMMS for music production.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/483/483031.png",
+                "source": "SELF-TAUGHT"
+              },
+              {
+                "title": "FL Studio",
+                "description": "Experience with FL Studio for music production.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/4416/4416717.png",
+                "source": "SELF-TAUGHT"
+              }
+            ]
+        },          
+        {
+            "title": "Video Editing",
+            "description": "Ability to edit and produce digital videos.",
+            "iconUrl": "https://cdn-icons-png.flaticon.com/512/7263/7263719.png",
+            "content": [
+              {
+                "title": "Sony Vegas",
+                "description": "Experience with Sony Vegas for video editing.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/10811/10811640.png",
+                "source": "SELF-TAUGHT"
+              },
+              {
+                "title": "Davinci Resolve",
+                "description": "Experience with Davinci Resolve for video editing.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/1146/1146145.png",
+                "source": "SELF-TAUGHT"
+              }
+            ]
+        },
+        {
+            "title": "Assets Creation with AI",
+            "description": "Ability to create game assets using AI techniques.",
+            "iconUrl": "https://cdn-icons-png.flaticon.com/512/9621/9621107.png",
+            "content": [
+              {
+                "title": "Stable Diffusion",
+                "description": "Experience with Stable Diffusion for AI-based game asset creation.",
+                "cover": "https://cdn-icons-png.flaticon.com/512/9621/9621107.png",
+                "source": "WORK EXPERIENCE"
+              }
+            ]
+        },          
+        {
+            "title": "Networking",
+            "description": "Ability to create multiplayer games and manage connections between players.",
+            "iconUrl": "https://cdn-icons-png.flaticon.com/512/900/900334.png",
+            "content": [
+                {
+                  "title": "Database Management",
+                  "description": "Proficiency in working with databases and data management.",
+                  "cover": "https://cdn-icons-png.flaticon.com/512/2383/2383158.png",
+                  "source": "SKILLSET"
+                }
+            ]
+        }
+    ],
+    "portfolio": [
+        {
+            "title": "Soundtracks",
+            "description": "Some of best self-made soundtracks.",
+            "iconUrl": "https://cdn-icons-png.flaticon.com/512/6707/6707113.png",
+            "fileTypes": "audio",
+            "content": [
+                {
+                    "title": "No Hope",
+                    "description": "Work in progress game menu's soundtrack.",
+                    "cover": "https://cdn-icons-png.flaticon.com/512/527/527989.png"
+                },
+                {
+                    "title": "No Hope (V2)",
+                    "description": "Work in progress game menu's soundtrack (v2)",
+                    "cover": "https://cdn-icons-png.flaticon.com/512/527/527989.png"
+                },
+                {
+                    "title": "Stars Falling",
+                    "description": "Redshift OST - Level 6",
+                    "cover": "https://cdn-icons-png.flaticon.com/512/527/527989.png"
+                },
+                {
+                    "title": "Ascension",
+                    "description": "Redshift OST - Level 7",
+                    "cover": "https://cdn-icons-png.flaticon.com/512/527/527989.png"
+                },
+                {
+                    "title": "Unbush",
+                    "description": "Redshift OST - Level 10",
+                    "cover": "https://cdn-icons-png.flaticon.com/512/527/527989.png"
+                },
+                {
+                    "title": "Unavoidable",
+                    "description": "Redshift OST - Level 13",
+                    "cover": "https://cdn-icons-png.flaticon.com/512/527/527989.png"
+                },
+                {
+                    "title": "Tick Tack",
+                    "description": "Redshift OST - Level 14",
+                    "cover": "https://cdn-icons-png.flaticon.com/512/527/527989.png"
+                },
+                {
+                    "title": "Final Chapter",
+                    "description": "Redshift OST - Level 15",
+                    "cover": "https://cdn-icons-png.flaticon.com/512/527/527989.png"
+                },
+                {
+                    "title": "Secret 1",
+                    "description": "Redshift OST - Secret Level 1",
+                    "cover": "https://cdn-icons-png.flaticon.com/512/527/527989.png"
+                },
+                {
+                    "title": "Secret 2",
+                    "description": "Redshift OST - Secret Level 2",
+                    "cover": "https://cdn-icons-png.flaticon.com/512/527/527989.png"
+                }
+
+            ]
+        },
+        {
+            "title": "3D Models",
+            "description": "Short Description",
+            "iconUrl": "https://cdn-icons-png.flaticon.com/512/3169/3169330.png",
+            "fileTypes": "model",
+            "content": [
+                {
+                    "title": "Runic Coin",
+                    "description": "An ancient coin.",
+                    "cover": "https://cdn-icons-png.flaticon.com/512/9937/9937233.png"
+                },
+                {
+                    "title": "Sofa",
+                    "description": "A confortable two-sits sofa.",
+                    "cover": "https://cdn-icons-png.flaticon.com/512/1010/1010398.png"
+                },
+                {
+                  "title": "Table",
+                  "description": "A Wodeen-Glass Table.",
+                  "cover": "https://cdn-icons-png.flaticon.com/512/1010/1010398.png"
+              },
+                {
+                  "title": "Pedestal",
+                  "description": "A pedestal that can hold something important.",
+                  "cover": "https://cdn-icons-png.flaticon.com/512/4906/4906173.png"
+                },
+                {
+                  "title": "Rock 1",
+                  "description": "Mossy Rock.",
+                  "cover": "https://cdn-icons-png.flaticon.com/512/4906/4906173.png"
+                },
+                {
+                  "title": "Rock 2",
+                  "description": "Mossy Rock.",
+                  "cover": "https://cdn-icons-png.flaticon.com/512/4906/4906173.png"
+                },
+                {
+                    "title": "Platform",
+                    "description": "A platform to jump on.",
+                    "cover": "https://cdn-icons-png.flaticon.com/512/4906/4906173.png"
+                },
+                {
+                    "title": "Portal",
+                    "description": "An ancient Portal with unknown destination...",
+                    "cover": "https://cdn-icons-png.flaticon.com/512/4906/4906173.png"
+                },
+                {
+                    "title": "Rock on Pedestal",
+                    "description": "Rock floating over a pedestal.",
+                    "cover": "https://cdn-icons-png.flaticon.com/512/4906/4906173.png"
+                },
+                {
+                    "title": "Basic Pistol",
+                    "description": "Basical pistol.",
+                    "cover": "https://cdn-icons-png.flaticon.com/512/1022/1022348.png"
+                }
+            ]
+        },
+        {
+            "title": "Projects",
+            "description": "Carreer Projects",
+            "iconUrl": "https://cdn-icons-png.flaticon.com/512/602/602323.png",
+            "fileTypes": "video",
+            "content": [
+                {
+                    "title": "Website",
+                    "description": "A personal website is vital, but it needs to change and evolve.",
+                    "cover": "https://cdn-icons-png.flaticon.com/512/2721/2721688.png"
+                },
+                {
+                    "title": "Red Shift",
+                    "description": "Test your reflexes and agility as you avoid red spheres and navigate challenging obstacles in this adrenaline-pumping Android game!",
+                    "cover": "https://cdn-icons-png.flaticon.com/512/5394/5394086.png",
+                    "src": "https://www.youtube.com/watch?v=tBRR6cu3QCY&ab_channel=BeatTheGame"
+                }
+            ]
+        }
+    ]
+}

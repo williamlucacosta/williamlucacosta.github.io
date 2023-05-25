@@ -1,0 +1,1 @@
+import{_ as s,o as a,c as o,a as n,t as c,n as _}from"./index-f02a25c9.js";const i={props:{title:String,outline:Boolean}};const l={class:"container"};function r(p,d,e,u,f,g){var t;return a(),o("div",l,[n("p",{class:_("title "+(e.outline?"outlined":""))},c((t=e.title)==null?void 0:t.toUpperCase()),3)])}const v=s(i,[["render",r],["__scopeId","data-v-0595e18c"]]);export{v as P};
