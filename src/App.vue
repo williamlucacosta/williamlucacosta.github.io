@@ -44,5 +44,45 @@ const closeNavbar = () => {
 </script>
 
 <style>
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 200;
+    cursor: pointer;
+}
 
+.hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: #FFF;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger Animation */
+.hamburger.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+@media (max-width: 1023px) {
+    .hamburger {
+        display: flex;
+    }
+}
 </style>

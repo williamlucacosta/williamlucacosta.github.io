@@ -51,36 +51,11 @@
     }
 
     .nav {
-        display: none;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.4s ease;
+        /* Handled in Navbar.vue now */
     }
 
     .nav.visible {
-        background: var(--glass-surface);
-        backdrop-filter: var(--blur-strong) !important;
-        -webkit-backdrop-filter: var(--blur-strong) !important;
-        border: 1px solid var(--glass-border);
-        box-shadow: var(--shadow-glass);
-
-        z-index: 50;
-        /* Ensure it's on top */
-        position: fixed;
-        /* Fixed to cover nicely */
-        top: 0;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        /* Check if full width or drawer? Let's assume full overlay for now or drawer */
-        width: 300px;
-        /* Drawer style */
-        height: 100vh;
-
-        display: flex;
-        /* Ensure flex layout works in drawer */
-        opacity: 1;
-        visibility: visible;
+        /* Handled in Navbar.vue now */
     }
 
     .home-container {

@@ -262,4 +262,30 @@ const goToDetails = () => {
 .project-card:hover .cta-icon {
     transform: translate(2px, -2px);
 }
+
+@media (max-width: 600px) {
+    .project-card {
+        border-radius: 12px;
+    }
+
+    .info-block {
+        padding: 20px;
+    }
+
+    .title-serif {
+        font-size: 1.25rem;
+    }
+
+    /* On mobile, hints of hover effects can be static or subtle */
+    .cta-row {
+        opacity: 1; /* Always show CTA on mobile */
+        transform: translateY(0);
+        margin-top: 12px;
+    }
+    
+    .tech-tag {
+        font-size: 0.65rem;
+        padding: 3px 6px;
+    }
+}
 </style>

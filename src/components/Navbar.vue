@@ -69,4 +69,52 @@ export default defineComponent({ name: 'NavbarComponent' });
 .router-link-exact-active {
     color: var(--text-white);
 }
+
+/* Mobile Overlay Styles */
+@media (max-width: 1023px) {
+    .navbar-fixed {
+        position: fixed;
+        inset: 0;
+        height: 100vh;
+        width: 100vw;
+        background: rgba(5, 5, 5, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center; /* Center vertically */
+        padding: 40px;
+        transform: translateY(-100%);
+        transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        border-bottom: none;
+    }
+
+    .navbar-fixed.visible {
+        transform: translateY(0);
+    }
+
+    .nav-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 60px;
+        width: 100%;
+        height: auto;
+    }
+
+    .brand {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .nav-item {
+        font-size: 2rem; /* Large text for mobile */
+        font-weight: 700;
+        letter-spacing: -0.02em;
+    }
+}
 </style>

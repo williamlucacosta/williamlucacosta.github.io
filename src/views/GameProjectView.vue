@@ -359,15 +359,33 @@ const bannerImagePath = computed(() => {
     .content-grid {
         grid-template-columns: 1fr;
         gap: 40px;
+        padding-top: 60px;
     }
     
     .sticky-wrapper {
         position: static;
         display: flex;
-        gap: 40px;
+        flex-direction: column; /* Stack details */
+        gap: 24px;
         border-bottom: 1px solid #222;
-        padding-bottom: 20px;
+        padding-bottom: 32px;
         margin-bottom: 40px;
+    }
+    
+    .sidebar-block {
+        margin-bottom: 0;
+    }
+    
+    .project-title {
+        font-size: 3rem; /* Smaller on mobile */
+    }
+    
+    .hero-content {
+        padding: 0 16px;
+    }
+
+    .back-btn {
+        background: rgba(0,0,0,0.8); /* More visible on mobile */
     }
 }
 </style>

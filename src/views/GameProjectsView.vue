@@ -76,6 +76,17 @@ import projects from '@/assets/data/projects.json';
 .projects-grid {
     width: 100%;
     margin-bottom: 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 32px;
+}
+
+@media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 0 16px; /* Ensure edge padding */
+    }
 }
 
 /* Stagger Animation */

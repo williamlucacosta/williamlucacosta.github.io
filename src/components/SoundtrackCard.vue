@@ -216,4 +216,28 @@ onUnmounted(() => {
     0% { height: 6px; opacity: 0.5; }
     100% { height: 24px; opacity: 1; }
 }
+
+@media (max-width: 600px) {
+    .soundtrack-card {
+        padding: 16px;
+    }
+
+    .content-wrapper {
+        gap: 16px;
+    }
+
+    .play-button {
+        width: 40px; /* Easy touch target */
+        height: 40px;
+    }
+
+    .title-serif {
+        font-size: 1rem;
+    }
+    
+    .meta-line {
+        flex-wrap: wrap; /* Allow wrapping if needed */
+        gap: 8px;
+    }
+}
 </style>

@@ -1,0 +1,5 @@
+- Layout per telefoni
+- migliorare colori e luci 3D
+- (nel deploy si vede tutto più piccolo come mai?)
+- dare in pasto i dati dei progetti che al momento in JSON
+- Scambiare Engineer con Game designer (e mettere Software Engineer)
