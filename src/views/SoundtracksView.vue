@@ -1,3 +1,11 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+import SoundtrackCard from '@/components/SoundtrackCard.vue';
+import soundtracks from '@/assets/data/soundtracks.json';
+
+const currentPlayingId = ref<number | null>(null);
+</script>
+
 <template>
     <div class="container app-page flex-center-col">
         <!-- Cinematic Header -->
@@ -13,20 +21,18 @@
             <SoundtrackCard
                 v-for="(track, index) in soundtracks"
                 :key="track.id"
+                :id="track.id"
+                :active-id="currentPlayingId"
                 :title="track.title"
                 :year="track.year"
                 :description="track.description"
                 class="stagger-item"
                 :style="{ animationDelay: `${index * 100}ms` }"
+                @play-start="currentPlayingId = $event"
             />
         </div>
     </div>
 </template>
-
-<script setup lang="ts">
-import SoundtrackCard from '@/components/SoundtrackCard.vue';
-import soundtracks from '@/assets/data/soundtracks.json';
-</script>
 
 <style scoped>
 .app-page {

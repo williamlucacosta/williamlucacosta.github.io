@@ -35,22 +35,28 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onUnmounted, computed } from "vue";
+import { ref, onUnmounted, computed, watch } from "vue";
 
 // Implicit defineProps (Macro)
 // eslint-disable-next-line no-undef
 const props = defineProps<{
+  id: number;
+  activeId: number | null;
   title: string;
   year: number;
   description: string;
 }>();
+
+// eslint-disable-next-line no-undef
+const emit = defineEmits(['play-start']);
 
 const isPlaying = ref(false);
 const audioPlayer = ref<HTMLAudioElement | null>(null);
 
 const audioSrc = computed(() => {
     try {
-        return require(`@/assets/audio/${props.title}.mp3`);
+        const fileName = props.title.replace(/ /g, '-');
+        return require(`@/assets/audio/${fileName}.mp3`);
     } catch (e) {
         return "";
     }
@@ -62,9 +68,20 @@ const togglePlay = () => {
         audioPlayer.value.pause();
     } else {
         audioPlayer.value.play();
+        emit('play-start', props.id);
     }
     isPlaying.value = !isPlaying.value;
 }
+
+watch(() => props.activeId, (newId) => {
+    if(newId !== props.id && isPlaying.value) {
+        if(audioPlayer.value) {
+            audioPlayer.value.pause();
+            audioPlayer.value.currentTime = 0; // Optional: Reset to start
+        }
+        isPlaying.value = false;
+    }
+});
 
 const onEnded = () => {
     isPlaying.value = false;
