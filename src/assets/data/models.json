@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": "ORC",
+    "year": 2024,
+    "status": "completed",
+    "description": "Modello 3D dettagliato di un orco ispirato a temi classici, adatto per giochi e simulazioni futuristiche.",
+    "tags": [
+      {"id": 1, "title": "Creature"},
+      {"id": 2, "title": "Blender"},
+      {"id": 3, "title": ".GLB"}
+    ]
+  }
+]

@@ -1,0 +1,111 @@
+/* ---------------- SM: SMARTPHONE GRANDE e PICCOLI TABLET ---------------- */
+@media (min-width: 640px) {}
+
+/* ---------------- MD: TABLET ---------------- */
+@media (max-width: 768px) {
+    .user-info-container {
+        flex-direction: column;
+    }
+}
+
+
+/* ---------------- LG: LAPTOP ---------------- */
+/* Navbar visibile da laptop (>=1024px) */
+@media (min-width: 1024px) {
+    .hamburger {
+        display: none;
+    }
+
+    .nav {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* Navbar ad hamburger sotto i laptop (<1024px) */
+@media (max-width: 1023px) {
+
+    .card,
+    .soundcard {
+        scale: 0.8;
+    }
+
+    .project-info-container {
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .projects-container {
+        gap: 0 !important;
+    }
+
+    .project-description {
+        font-size: 18px !important;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+    }
+
+    .nav.visible {
+        background: var(--glass-surface);
+        backdrop-filter: var(--blur-strong) !important;
+        -webkit-backdrop-filter: var(--blur-strong) !important;
+        border: 1px solid var(--glass-border);
+        box-shadow: var(--shadow-glass);
+
+        z-index: 50;
+        /* Ensure it's on top */
+        position: fixed;
+        /* Fixed to cover nicely */
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        /* Check if full width or drawer? Let's assume full overlay for now or drawer */
+        width: 300px;
+        /* Drawer style */
+        height: 100vh;
+
+        display: flex;
+        /* Ensure flex layout works in drawer */
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .home-container {
+        scale: 0.8;
+        gap: 0;
+    }
+
+    .home-description {
+        width: 70%;
+    }
+
+    .home-description p {
+        font-size: 18px;
+        text-align: center;
+        margin-top: 0;
+    }
+
+    .user-info-container {
+        scale: 0.7;
+    }
+}
+
+/* ---------------- XL: DESKTOP---------------- */
+@media (min-width: 1280px) {}
+
+
+/* ---------------- 2XL: MONITOR GRANDI ---------------- */
+@media (min-width: 1536px) {}

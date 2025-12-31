@@ -1,0 +1,283 @@
+/* ---------------- FONTS ---------------- */
+.font-sfpro {
+    font-family: "SF Pro Display";
+}
+
+.font-gothic {
+    font-family: 'Alternate Gothic No2 D';
+}
+
+.font-opensans {
+    font-family: 'Open Sans';
+}
+
+/* .font-ysabeau { font-family: "Ysabeau"; } */
+
+
+
+/* ---------------- TEXT SIZE ---------------- */
+.text-xs {
+    font-size: 12px;
+}
+
+/* .text-sm { font-size: 14px; } */
+.text-base {
+    font-size: 16px;
+}
+
+.text-lg {
+    font-size: 20px;
+}
+
+.text-xl {
+    font-size: 24px;
+}
+
+.text-2xl {
+    font-size: 30px;
+}
+
+.text-3xl {
+    font-size: 40px;
+}
+
+/* .text-4xl { font-size: 48px; } */
+.text-5xl {
+    font-size: 64px;
+}
+
+/* .text-[7xl] { font-size: 80px; } */
+.text-6xl {
+    font-size: 100px;
+}
+
+/* .text-[7xl] { font-size: 120px; } */
+
+
+/* ---------------- TEXT WEIGHT ---------------- */
+.font-light {
+    font-weight: 300;
+}
+
+.font-normal {
+    font-weight: 400;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+/* .font-extrabold { font-weight: 800; } */
+/* .font-black { font-weight: 900; } */
+
+
+/* ---------------- LINE HEIGHT ---------------- */
+.lh-compressed {
+    line-height: 0.75;
+}
+
+/* .lh-none   { line-height: 1; } */
+/* .lh-tight  { line-height: 1.25; } */
+/* .lh-snug   { line-height: 1.375; } */
+/* .lh-normal { line-height: 1.5; } */
+/* .lh-relaxed{ line-height: 1.625; } */
+/* .lh-loose  { line-height: 2; } */
+
+
+/* ---------------- TEXT ALIGN ---------------- */
+.justify-text {
+    text-align: justify;
+}
+
+/* .text-left {text-align: left;} */
+/* .text-center {text-align: center;} */
+/* .text-right {text-align: right;} */
+
+
+/* ---------------- LETTER SPACING ---------------- */
+.ls-wide {
+    letter-spacing: 0.05em;
+}
+
+.ls-wider {
+    letter-spacing: 0.1em;
+}
+
+.ls-widest {
+    letter-spacing: 0.2em;
+}
+
+.ls-ultra {
+    letter-spacing: 0.3em;
+}
+
+/* .ls-tight { letter-spacing: -0.025em; } */
+/* .ls-tighter { letter-spacing: -0.05em; } */
+
+
+/* ---------------- COLORS ---------------- */
+/* ---------------- THEME: MIDNIGHT MONOLITH ---------------- */
+:root {
+    /* Base */
+    --bg-main: #050505;
+    --bg-panel: #0A0A0A;
+
+    /* Typography */
+    --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --text-white: #FFFFFF;
+    --text-cloud: #A1A1AA;
+    /* Zinc-400 */
+    --text-ash: #52525B;
+    /* Zinc-600 */
+
+    /* Borders */
+    --border-dim: #18181B;
+    /* Zinc-900 */
+    --border-light: #27272A;
+    /* Zinc-800 */
+
+    /* Accents */
+    --accent-blue: #3B82F6;
+
+    /* Spacing */
+    --nav-height: 80px;
+    --container-max: 1400px;
+    --radius-sharp: 4px;
+}
+
+/* ---------------- RESET ---------------- */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-main);
+    color: var(--text-white);
+    font-family: var(--font-display);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* ---------------- UTILITIES ---------------- */
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 100%;
+}
+
+/* Typography Utils */
+.text-cloud {
+    color: var(--text-cloud);
+}
+
+.text-ash {
+    color: var(--text-ash);
+}
+
+.font-mono {
+    font-family: var(--font-mono);
+}
+
+/* Layout Grid for Projects */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding-bottom: 120px;
+}
+
+/* Section Headers */
+.section-header {
+    margin-top: 120px;
+    margin-bottom: 60px;
+    border-bottom: 1px solid var(--border-dim);
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.section-subtitle {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-ash);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    .section-header {
+        margin-top: 80px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-light);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-ash);
+}
