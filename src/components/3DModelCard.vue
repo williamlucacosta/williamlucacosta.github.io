@@ -6,13 +6,18 @@
     :description="description"
     :year="year"
     :status="status"
+    :tags="tags"
     routeName="3d-model-details"
   />
 </template>
 
 <script lang="ts" setup>
 import BaseCard from "./BaseCard.vue";
-import { defineProps } from "vue";
+
+interface Tag {
+    id: number;
+    title: string;
+}
 
 defineProps<{
   id: number;
@@ -21,5 +26,6 @@ defineProps<{
   description: string;
   year: number;
   status?: string;
+  tags?: Tag[];
 }>();
 </script>

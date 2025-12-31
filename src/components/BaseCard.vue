@@ -8,6 +8,12 @@
             alt="cover"
         />
         <div class="overlay-gradient"></div>
+        
+        <!-- Status Dot (Absolute Top Right) -->
+        <div class="status-badge" v-if="status">
+            <span class="status-dot" :class="status"></span>
+            {{ status }}
+        </div>
     </div>
 
     <!-- Info Block -->
@@ -16,12 +22,20 @@
             <h3 class="title-serif">{{ title }}</h3>
             <span class="badge-year">{{ year }}</span>
         </div>
+        
+        <!-- Tags Row -->
+        <div class="tags-row" v-if="tags && tags.length > 0">
+            <span v-for="tag in tags" :key="tag.id" class="tech-tag">
+                {{ tag.title }}
+            </span>
+        </div>
+
         <p class="desc">{{ description }}</p>
         
         <!-- Hover CTA -->
         <div class="cta-row">
-            <span class="cta-text">View Case Study</span>
-            <span class="cta-arrow">→</span>
+            <span class="cta-text">Explore</span>
+            <span class="cta-icon">↗</span>
         </div>
     </div>
   </div>
@@ -29,7 +43,11 @@
 
 <script lang="ts" setup>
 import router from "@/router";
-import { defineProps } from "vue";
+
+interface Tag {
+    id: number;
+    title: string;
+}
 
 // eslint-disable-next-line no-undef
 const props = defineProps<{
@@ -40,6 +58,7 @@ const props = defineProps<{
   year: number;
   routeName: string;
   status?: string;
+  tags?: Tag[];
 }>();
 
 const COVER_FILENAME = "cover.jpg";
@@ -53,62 +72,96 @@ const goToDetails = () => {
 </script>
 
 <style scoped>
-/* Professional Card Container */
+/* Cinematic Card Container */
 .project-card {
-    background: #0A0A0A;
-    border: 1px solid #222;
-    border-radius: 12px;
+    background: #050505;
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle border */
+    border-radius: 16px;
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.2s ease-out;
+    transition: all 0.3s ease-out;
     display: flex;
     flex-direction: column;
     height: 100%;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
 .project-card:hover {
-    background: #101010;
-    border-color: var(--accent-blue, #3B82F6);
+    background: #0A0A0A;
+    border-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px -10px rgba(59, 130, 246, 0.15);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
 }
 
 /* Image Section */
 .media-frame {
     width: 100%;
-    aspect-ratio: 16/10;
+    aspect-ratio: 16/9; /* Cinematic Aspect Ratio */
     position: relative;
     overflow: hidden;
     background: #111;
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .media-content {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.3s;
+    filter: saturate(0.9);
 }
 
 .project-card:hover .media-content {
-    transform: scale(1.05);
+    transform: scale(1.08);
+    filter: saturate(1.1);
 }
 
 .overlay-gradient {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
-    opacity: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%);
+    opacity: 0.6;
     transition: opacity 0.3s;
 }
 
 .project-card:hover .overlay-gradient {
-    opacity: 1;
+    opacity: 0.4;
 }
+
+/* Status Badge */
+.status-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #CCC;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #666;
+}
+
+.status-dot.completed { background: #10B981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.4); }
+.status-dot.wip { background: #F59E0B; }
 
 /* Info Section */
 .info-block {
-    padding: 24px;
+    padding: 24px 28px;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -118,31 +171,56 @@ const goToDetails = () => {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .title-serif {
-    font-family: 'SF Pro Display', sans-serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #FFF;
+    font-family: 'SF Pro Display', sans-serif; /* Fallback to sans for now, or ensure serif if desired */
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #EEE;
     margin: 0;
-    line-height: 1.2;
+    line-height: 1.1;
     transition: color 0.2s;
 }
 
 .project-card:hover .title-serif {
-    color: var(--accent-blue, #3B82F6);
+    color: #FFF;
+    text-shadow: 0 0 20px rgba(255,255,255,0.2);
 }
 
 .badge-year {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: #888;
-    background: #181818;
-    padding: 2px 8px;
+    color: #666;
+    border: 1px solid #333;
+    padding: 2px 6px;
     border-radius: 4px;
-    white-space: nowrap;
+    margin-top: 4px; /* Align visually with title */
+}
+
+/* Tags */
+.tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.tech-tag {
+    font-size: 0.7rem;
+    color: #999;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: all 0.2s;
+}
+
+.project-card:hover .tech-tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: #DDD;
 }
 
 .desc {
@@ -150,32 +228,38 @@ const goToDetails = () => {
     color: #888;
     line-height: 1.6;
     margin-bottom: 24px;
-    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit description lines */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1; /* Pushes CTA to bottom */
 }
 
 /* CTA */
 .cta-row {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
+    justify-content: flex-end; /* Align right */
+    gap: 6px;
+    font-size: 0.8rem;
     font-weight: 600;
-    color: var(--accent-blue, #3B82F6);
-    opacity: 0;
-    transform: translateY(10px);
+    color: #666;
     transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
 .project-card:hover .cta-row {
-    opacity: 1;
-    transform: translateY(0);
+    color: #FFF;
 }
 
-.cta-arrow {
+.cta-icon {
+    font-size: 1rem;
     transition: transform 0.2s;
 }
 
-.project-card:hover .cta-arrow {
-    transform: translateX(4px);
+.project-card:hover .cta-icon {
+    transform: translate(2px, -2px);
 }
 </style>

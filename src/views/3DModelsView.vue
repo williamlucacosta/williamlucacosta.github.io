@@ -17,6 +17,7 @@
                 :title="model.title"
                 :year="model.year"
                 :description="model.description"
+                :tags="model.tags"
                 routeName="3d-model-details"
                 class="stagger-item"
                 :style="{ animationDelay: `${index * 100}ms` }"
@@ -61,6 +62,7 @@ import models from '@/assets/data/models.json';
     letter-spacing: -0.03em;
     background: linear-gradient(to bottom, #FFF 20%, #AAA 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 0 0 16px 0;
 }

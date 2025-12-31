@@ -17,6 +17,7 @@
                 :title="project.title"
                 :year="project.year"
                 :description="project.description"
+                :tags="project.tags"
                 routeName="game-project-details"
                 class="stagger-item"
                 :style="{ animationDelay: `${index * 100}ms` }"
@@ -61,6 +62,7 @@ import projects from '@/assets/data/projects.json';
     letter-spacing: -0.03em;
     background: linear-gradient(to bottom, #FFF 20%, #AAA 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 0 0 16px 0;
 }
