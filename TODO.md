@@ -1,5 +1,6 @@
 - Nel layout telefoni chiudi il menu se selezioni una pagina diversa da quella corrente
-- migliorare colori e luci 3D
+- nel dettaglio progetti, icona di scroll si sovrappone al testo
+- nel dettaglio progetti, banner se ha sfondo bianco il testo non si legge benissimo (scurire il banner di poco)
 - (nel deploy si vede tutto più piccolo come mai?)
 - dare in pasto i dati dei progetti che al momento in JSON
 - Scambiare Engineer con Game designer (e mettere Software Engineer)
