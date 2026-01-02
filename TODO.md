@@ -1,5 +1,6 @@
-- Layout per telefoni
+- Nel layout telefoni chiudi il menu se selezioni una pagina diversa da quella corrente
 - migliorare colori e luci 3D
 - (nel deploy si vede tutto più piccolo come mai?)
 - dare in pasto i dati dei progetti che al momento in JSON
 - Scambiare Engineer con Game designer (e mettere Software Engineer)
+- da telefono quando apri un progetto non parte da sopra la pagina ma è già leggermente scrollata (??? verificare prima)
