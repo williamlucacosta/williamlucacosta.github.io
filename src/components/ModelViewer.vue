@@ -387,6 +387,9 @@ function ToggleRotate() {
     inset: 0;
     background: #000;
     z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .spinner {
     width: 40px;
