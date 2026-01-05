@@ -3,9 +3,9 @@
         <div class="hero-center">
             <h1 class="name">Luca Costa.</h1>
             <div class="role">
-                <span>Game Designer</span>
+                <span>Software Engineer</span>
                 <span class="divider">/</span>
-                <span>Engineer</span>
+                <span>Game Designer</span>
             </div>
             
             <div class="socials">
@@ -44,7 +44,7 @@
 .role {
     font-family: var(--font-mono);
     color: var(--text-cloud);
-    font-size: 0.9rem;
+    font-size: 1.25rem; /* Increased from 1.1rem */
     margin-bottom: 32px;
 }
 
@@ -60,7 +60,7 @@
 }
 
 .link {
-    font-size: 0.9rem;
+    font-size: 1.15rem; /* Increased from 1rem */
     color: var(--text-ash);
     border-bottom: 1px solid transparent;
     padding-bottom: 2px;

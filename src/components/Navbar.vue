@@ -46,7 +46,7 @@ export default defineComponent({ name: 'NavbarComponent' });
 
 .brand {
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.8rem; /* Increased from 1.5rem */
     letter-spacing: -0.04em;
     color: var(--text-white);
 }
@@ -57,7 +57,7 @@ export default defineComponent({ name: 'NavbarComponent' });
 }
 
 .nav-item {
-    font-size: 0.9rem;
+    font-size: 1.25rem; /* Increased from 1.1rem */
     color: var(--text-cloud);
     font-weight: 500;
 }
