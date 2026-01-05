@@ -27,12 +27,22 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import { useRoute } from "vue-router";
 import Navbar from "@/components/Navbar.vue";
 import "./assets/styles/base.css";
 import "./assets/styles/media-query.css"
 
 const isNavbarVisible = ref(false);
+const route = useRoute();
+
+// Auto-close navbar when navigating to a DIFFERENT page
+watch(
+  () => route.path,
+  () => {
+    isNavbarVisible.value = false;
+  }
+);
 
 const toggleNavbar = () => {
 	isNavbarVisible.value = !isNavbarVisible.value;
