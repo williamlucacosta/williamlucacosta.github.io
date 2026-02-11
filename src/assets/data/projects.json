@@ -1,498 +1,76 @@
 [
-  {
-    "id": 1,
-    "title": "REDSHIFT",
-    "year": 2017,
-    "status": "completed",
-    "description": "Precision and reflexes are essential to survive an unrelenting barrage of geometric shapes.",
-    "tags": [
-      {"id": 1, "title": "Android Game"},
-      {"id": 2, "title": "UNITY"},
-      {"id": 3, "title": "Arcade"},
-      {"id": 4, "title": "Skill-based"}
-    ],
-    "sections": [
-      {
-        "id": 1,
-        "title": "OVERVIEW",
-        "description": "Redshift is a captivating 2D arcade game where players must dodge a continuous flow of fast-moving geometric shapes. Developed in Unity, the game offers a dynamic and engaging challenge, testing the player’s precision and reflexes. With a minimalist design, simple yet responsive controls, and a pulsating soundtrack, Redshift delivers a frantic and immersive experience that keeps players constantly focused."
-      },
-      {
-        "id": 2,
-        "title": "GAMEPLAY FEATURES",
-        "subsections": [
-          {
-            "id": 1,
-            "title": "Progressive Difficulty",
-            "description": "The game’s pace increases progressively, with geometric shapes becoming faster and more complex to avoid. Each level introduces new configurations and movement patterns that challenge even the most skilled players."
-          },
-          {
-            "id": 2,
-            "title": "Secret Levels",
-            "description": "Players can collect coins during matches to unlock hidden secret levels. These levels offer unique challenges, surprising environments, and special rewards, making exploration and coin collection a key element of the gameplay."
-          },
-          {
-            "id": 3,
-            "title": "Dynamic Soundtrack",
-            "description": "The soundtrack adapts to the game’s intensity, enhancing player engagement and immersion during the most frantic gameplay moments."
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "title": "CONTRIBUTORS",
-        "subsections": [
-          {
-            "id": 1,
-            "title": "Game Design and Development",
-            "description": "The design and development of Redshift required a combination of intuitive gameplay, captivating visual design, and progressive challenges. The optimization of the collision system ensures smooth and precise responses, enhancing the player’s experience."
-          },
-          {
-            "id": 2,
-            "title": "Visual and Animation Design",
-            "description": "The minimalist visual design was crafted to keep the player’s focus sharp, while fluid animations emphasize the visual impact of the gameplay and improve readability in complex game situations. Vibrant colors and dynamic transitions enrich the overall visual experience."
-          },
-          {
-            "id": 3,
-            "title": "Sound and Music Design",
-            "description": "The dynamic soundtrack and synchronized sound effects enhance gameplay tension and drive the action’s rhythm. Each sound element was calibrated to provide clear and satisfying feedback to the player."
-          }
-        ]
-      }
-    ]
-  },
     {
-    "id": 1,
-    "title": "REDSHIFT",
-    "year": 2017,
-    "status": "completed",
-    "description": "Precision and reflexes are essential to survive an unrelenting barrage of geometric shapes.",
-    "tags": [
-      {"id": 1, "title": "Android Game"},
-      {"id": 2, "title": "UNITY"},
-      {"id": 3, "title": "Arcade"},
-      {"id": 4, "title": "Skill-based"}
-    ],
-    "sections": [
-      {
         "id": 1,
-        "title": "OVERVIEW",
-        "description": "Redshift is a captivating 2D arcade game where players must dodge a continuous flow of fast-moving geometric shapes. Developed in Unity, the game offers a dynamic and engaging challenge, testing the player’s precision and reflexes. With a minimalist design, simple yet responsive controls, and a pulsating soundtrack, Redshift delivers a frantic and immersive experience that keeps players constantly focused."
-      },
-      {
-        "id": 2,
-        "title": "GAMEPLAY FEATURES",
-        "subsections": [
-          {
-            "id": 1,
-            "title": "Progressive Difficulty",
-            "description": "The game’s pace increases progressively, with geometric shapes becoming faster and more complex to avoid. Each level introduces new configurations and movement patterns that challenge even the most skilled players."
-          },
-          {
-            "id": 2,
-            "title": "Secret Levels",
-            "description": "Players can collect coins during matches to unlock hidden secret levels. These levels offer unique challenges, surprising environments, and special rewards, making exploration and coin collection a key element of the gameplay."
-          },
-          {
-            "id": 3,
-            "title": "Dynamic Soundtrack",
-            "description": "The soundtrack adapts to the game’s intensity, enhancing player engagement and immersion during the most frantic gameplay moments."
-          }
+        "title": "REDSHIFT",
+        "year": 2017,
+        "status": "completed",
+        "description": "Precision and reflexes are essential to survive an unrelenting barrage of geometric shapes.",
+        "tags": [
+            {
+                "id": 1,
+                "title": "Android Game"
+            },
+            {
+                "id": 2,
+                "title": "UNITY"
+            },
+            {
+                "id": 3,
+                "title": "Arcade"
+            },
+            {
+                "id": 4,
+                "title": "Skill-based"
+            }
+        ],
+        "sections": [
+            {
+                "id": 1,
+                "title": "OVERVIEW",
+                "description": "Redshift is a captivating 2D arcade game where players must dodge a continuous flow of fast-moving geometric shapes. Developed in Unity, the game offers a dynamic and engaging challenge, testing the player’s precision and reflexes. With a minimalist design, simple yet responsive controls, and a pulsating soundtrack, Redshift delivers a frantic and immersive experience that keeps players constantly focused."
+            },
+            {
+                "id": 2,
+                "title": "GAMEPLAY FEATURES",
+                "subsections": [
+                    {
+                        "id": 1,
+                        "title": "Progressive Difficulty",
+                        "description": "The game’s pace increases progressively, with geometric shapes becoming faster and more complex to avoid. Each level introduces new configurations and movement patterns that challenge even the most skilled players."
+                    },
+                    {
+                        "id": 2,
+                        "title": "Secret Levels",
+                        "description": "Players can collect coins during matches to unlock hidden secret levels. These levels offer unique challenges, surprising environments, and special rewards, making exploration and coin collection a key element of the gameplay."
+                    },
+                    {
+                        "id": 3,
+                        "title": "Dynamic Soundtrack",
+                        "description": "The soundtrack adapts to the game’s intensity, enhancing player engagement and immersion during the most frantic gameplay moments."
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "title": "CONTRIBUTORS",
+                "subsections": [
+                    {
+                        "id": 1,
+                        "title": "Game Design and Development",
+                        "description": "The design and development of Redshift required a combination of intuitive gameplay, captivating visual design, and progressive challenges. The optimization of the collision system ensures smooth and precise responses, enhancing the player’s experience."
+                    },
+                    {
+                        "id": 2,
+                        "title": "Visual and Animation Design",
+                        "description": "The minimalist visual design was crafted to keep the player’s focus sharp, while fluid animations emphasize the visual impact of the gameplay and improve readability in complex game situations. Vibrant colors and dynamic transitions enrich the overall visual experience."
+                    },
+                    {
+                        "id": 3,
+                        "title": "Sound and Music Design",
+                        "description": "The dynamic soundtrack and synchronized sound effects enhance gameplay tension and drive the action’s rhythm. Each sound element was calibrated to provide clear and satisfying feedback to the player."
+                    }
+                ]
+            }
         ]
-      },
-      {
-        "id": 3,
-        "title": "CONTRIBUTORS",
-        "subsections": [
-          {
-            "id": 1,
-            "title": "Game Design and Development",
-            "description": "The design and development of Redshift required a combination of intuitive gameplay, captivating visual design, and progressive challenges. The optimization of the collision system ensures smooth and precise responses, enhancing the player’s experience."
-          },
-          {
-            "id": 2,
-            "title": "Visual and Animation Design",
-            "description": "The minimalist visual design was crafted to keep the player’s focus sharp, while fluid animations emphasize the visual impact of the gameplay and improve readability in complex game situations. Vibrant colors and dynamic transitions enrich the overall visual experience."
-          },
-          {
-            "id": 3,
-            "title": "Sound and Music Design",
-            "description": "The dynamic soundtrack and synchronized sound effects enhance gameplay tension and drive the action’s rhythm. Each sound element was calibrated to provide clear and satisfying feedback to the player."
-          }
-        ]
-      }
-    ]
-  },
-    {
-    "id": 1,
-    "title": "REDSHIFT",
-    "year": 2017,
-    "status": "completed",
-    "description": "Precision and reflexes are essential to survive an unrelenting barrage of geometric shapes.",
-    "tags": [
-      {"id": 1, "title": "Android Game"},
-      {"id": 2, "title": "UNITY"},
-      {"id": 3, "title": "Arcade"},
-      {"id": 4, "title": "Skill-based"}
-    ],
-    "sections": [
-      {
-        "id": 1,
-        "title": "OVERVIEW",
-        "description": "Redshift is a captivating 2D arcade game where players must dodge a continuous flow of fast-moving geometric shapes. Developed in Unity, the game offers a dynamic and engaging challenge, testing the player’s precision and reflexes. With a minimalist design, simple yet responsive controls, and a pulsating soundtrack, Redshift delivers a frantic and immersive experience that keeps players constantly focused."
-      },
-      {
-        "id": 2,
-        "title": "GAMEPLAY FEATURES",
-        "subsections": [
-          {
-            "id": 1,
-            "title": "Progressive Difficulty",
-            "description": "The game’s pace increases progressively, with geometric shapes becoming faster and more complex to avoid. Each level introduces new configurations and movement patterns that challenge even the most skilled players."
-          },
-          {
-            "id": 2,
-            "title": "Secret Levels",
-            "description": "Players can collect coins during matches to unlock hidden secret levels. These levels offer unique challenges, surprising environments, and special rewards, making exploration and coin collection a key element of the gameplay."
-          },
-          {
-            "id": 3,
-            "title": "Dynamic Soundtrack",
-            "description": "The soundtrack adapts to the game’s intensity, enhancing player engagement and immersion during the most frantic gameplay moments."
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "title": "CONTRIBUTORS",
-        "subsections": [
-          {
-            "id": 1,
-            "title": "Game Design and Development",
-            "description": "The design and development of Redshift required a combination of intuitive gameplay, captivating visual design, and progressive challenges. The optimization of the collision system ensures smooth and precise responses, enhancing the player’s experience."
-          },
-          {
-            "id": 2,
-            "title": "Visual and Animation Design",
-            "description": "The minimalist visual design was crafted to keep the player’s focus sharp, while fluid animations emphasize the visual impact of the gameplay and improve readability in complex game situations. Vibrant colors and dynamic transitions enrich the overall visual experience."
-          },
-          {
-            "id": 3,
-            "title": "Sound and Music Design",
-            "description": "The dynamic soundtrack and synchronized sound effects enhance gameplay tension and drive the action’s rhythm. Each sound element was calibrated to provide clear and satisfying feedback to the player."
-          }
-        ]
-      }
-    ]
-  },
-    {
-    "id": 1,
-    "title": "REDSHIFT",
-    "year": 2017,
-    "status": "completed",
-    "description": "Precision and reflexes are essential to survive an unrelenting barrage of geometric shapes.",
-    "tags": [
-      {"id": 1, "title": "Android Game"},
-      {"id": 2, "title": "UNITY"},
-      {"id": 3, "title": "Arcade"},
-      {"id": 4, "title": "Skill-based"}
-    ],
-    "sections": [
-      {
-        "id": 1,
-        "title": "OVERVIEW",
-        "description": "Redshift is a captivating 2D arcade game where players must dodge a continuous flow of fast-moving geometric shapes. Developed in Unity, the game offers a dynamic and engaging challenge, testing the player’s precision and reflexes. With a minimalist design, simple yet responsive controls, and a pulsating soundtrack, Redshift delivers a frantic and immersive experience that keeps players constantly focused."
-      },
-      {
-        "id": 2,
-        "title": "GAMEPLAY FEATURES",
-        "subsections": [
-          {
-            "id": 1,
-            "title": "Progressive Difficulty",
-            "description": "The game’s pace increases progressively, with geometric shapes becoming faster and more complex to avoid. Each level introduces new configurations and movement patterns that challenge even the most skilled players."
-          },
-          {
-            "id": 2,
-            "title": "Secret Levels",
-            "description": "Players can collect coins during matches to unlock hidden secret levels. These levels offer unique challenges, surprising environments, and special rewards, making exploration and coin collection a key element of the gameplay."
-          },
-          {
-            "id": 3,
-            "title": "Dynamic Soundtrack",
-            "description": "The soundtrack adapts to the game’s intensity, enhancing player engagement and immersion during the most frantic gameplay moments."
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "title": "CONTRIBUTORS",
-        "subsections": [
-          {
-            "id": 1,
-            "title": "Game Design and Development",
-            "description": "The design and development of Redshift required a combination of intuitive gameplay, captivating visual design, and progressive challenges. The optimization of the collision system ensures smooth and precise responses, enhancing the player’s experience."
-          },
-          {
-            "id": 2,
-            "title": "Visual and Animation Design",
-            "description": "The minimalist visual design was crafted to keep the player’s focus sharp, while fluid animations emphasize the visual impact of the gameplay and improve readability in complex game situations. Vibrant colors and dynamic transitions enrich the overall visual experience."
-          },
-          {
-            "id": 3,
-            "title": "Sound and Music Design",
-            "description": "The dynamic soundtrack and synchronized sound effects enhance gameplay tension and drive the action’s rhythm. Each sound element was calibrated to provide clear and satisfying feedback to the player."
-          }
-        ]
-      }
-    ]
-  },
-    {
-    "id": 1,
-    "title": "REDSHIFT",
-    "year": 2017,
-    "status": "completed",
-    "description": "Precision and reflexes are essential to survive an unrelenting barrage of geometric shapes.",
-    "tags": [
-      {"id": 1, "title": "Android Game"},
-      {"id": 2, "title": "UNITY"},
-      {"id": 3, "title": "Arcade"},
-      {"id": 4, "title": "Skill-based"}
-    ],
-    "sections": [
-      {
-        "id": 1,
-        "title": "OVERVIEW",
-        "description": "Redshift is a captivating 2D arcade game where players must dodge a continuous flow of fast-moving geometric shapes. Developed in Unity, the game offers a dynamic and engaging challenge, testing the player’s precision and reflexes. With a minimalist design, simple yet responsive controls, and a pulsating soundtrack, Redshift delivers a frantic and immersive experience that keeps players constantly focused."
-      },
-      {
-        "id": 2,
-        "title": "GAMEPLAY FEATURES",
-        "subsections": [
-          {
-            "id": 1,
-            "title": "Progressive Difficulty",
-            "description": "The game’s pace increases progressively, with geometric shapes becoming faster and more complex to avoid. Each level introduces new configurations and movement patterns that challenge even the most skilled players."
-          },
-          {
-            "id": 2,
-            "title": "Secret Levels",
-            "description": "Players can collect coins during matches to unlock hidden secret levels. These levels offer unique challenges, surprising environments, and special rewards, making exploration and coin collection a key element of the gameplay."
-          },
-          {
-            "id": 3,
-            "title": "Dynamic Soundtrack",
-            "description": "The soundtrack adapts to the game’s intensity, enhancing player engagement and immersion during the most frantic gameplay moments."
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "title": "CONTRIBUTORS",
-        "subsections": [
-          {
-            "id": 1,
-            "title": "Game Design and Development",
-            "description": "The design and development of Redshift required a combination of intuitive gameplay, captivating visual design, and progressive challenges. The optimization of the collision system ensures smooth and precise responses, enhancing the player’s experience."
-          },
-          {
-            "id": 2,
-            "title": "Visual and Animation Design",
-            "description": "The minimalist visual design was crafted to keep the player’s focus sharp, while fluid animations emphasize the visual impact of the gameplay and improve readability in complex game situations. Vibrant colors and dynamic transitions enrich the overall visual experience."
-          },
-          {
-            "id": 3,
-            "title": "Sound and Music Design",
-            "description": "The dynamic soundtrack and synchronized sound effects enhance gameplay tension and drive the action’s rhythm. Each sound element was calibrated to provide clear and satisfying feedback to the player."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": 1,
-    "title": "REDSHIFT",
-    "year": 2017,
-    "status": "completed",
-    "description": "Precision and reflexes are essential to survive an unrelenting barrage of geometric shapes.",
-    "tags": [
-      {"id": 1, "title": "Android Game"},
-      {"id": 2, "title": "UNITY"},
-      {"id": 3, "title": "Arcade"},
-      {"id": 4, "title": "Skill-based"}
-    ],
-    "sections": [
-      {
-        "id": 1,
-        "title": "OVERVIEW",
-        "description": "Redshift is a captivating 2D arcade game where players must dodge a continuous flow of fast-moving geometric shapes. Developed in Unity, the game offers a dynamic and engaging challenge, testing the player’s precision and reflexes. With a minimalist design, simple yet responsive controls, and a pulsating soundtrack, Redshift delivers a frantic and immersive experience that keeps players constantly focused."
-      },
-      {
-        "id": 2,
-        "title": "GAMEPLAY FEATURES",
-        "subsections": [
-          {
-            "id": 1,
-            "title": "Progressive Difficulty",
-            "description": "The game’s pace increases progressively, with geometric shapes becoming faster and more complex to avoid. Each level introduces new configurations and movement patterns that challenge even the most skilled players."
-          },
-          {
-            "id": 2,
-            "title": "Secret Levels",
-            "description": "Players can collect coins during matches to unlock hidden secret levels. These levels offer unique challenges, surprising environments, and special rewards, making exploration and coin collection a key element of the gameplay."
-          },
-          {
-            "id": 3,
-            "title": "Dynamic Soundtrack",
-            "description": "The soundtrack adapts to the game’s intensity, enhancing player engagement and immersion during the most frantic gameplay moments."
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "title": "CONTRIBUTORS",
-        "subsections": [
-          {
-            "id": 1,
-            "title": "Game Design and Development",
-            "description": "The design and development of Redshift required a combination of intuitive gameplay, captivating visual design, and progressive challenges. The optimization of the collision system ensures smooth and precise responses, enhancing the player’s experience."
-          },
-          {
-            "id": 2,
-            "title": "Visual and Animation Design",
-            "description": "The minimalist visual design was crafted to keep the player’s focus sharp, while fluid animations emphasize the visual impact of the gameplay and improve readability in complex game situations. Vibrant colors and dynamic transitions enrich the overall visual experience."
-          },
-          {
-            "id": 3,
-            "title": "Sound and Music Design",
-            "description": "The dynamic soundtrack and synchronized sound effects enhance gameplay tension and drive the action’s rhythm. Each sound element was calibrated to provide clear and satisfying feedback to the player."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": 1,
-    "title": "REDSHIFT",
-    "year": 2017,
-    "status": "completed",
-    "description": "Precision and reflexes are essential to survive an unrelenting barrage of geometric shapes.",
-    "tags": [
-      {"id": 1, "title": "Android Game"},
-      {"id": 2, "title": "UNITY"},
-      {"id": 3, "title": "Arcade"},
-      {"id": 4, "title": "Skill-based"}
-    ],
-    "sections": [
-      {
-        "id": 1,
-        "title": "OVERVIEW",
-        "description": "Redshift is a captivating 2D arcade game where players must dodge a continuous flow of fast-moving geometric shapes. Developed in Unity, the game offers a dynamic and engaging challenge, testing the player’s precision and reflexes. With a minimalist design, simple yet responsive controls, and a pulsating soundtrack, Redshift delivers a frantic and immersive experience that keeps players constantly focused."
-      },
-      {
-        "id": 2,
-        "title": "GAMEPLAY FEATURES",
-        "subsections": [
-          {
-            "id": 1,
-            "title": "Progressive Difficulty",
-            "description": "The game’s pace increases progressively, with geometric shapes becoming faster and more complex to avoid. Each level introduces new configurations and movement patterns that challenge even the most skilled players."
-          },
-          {
-            "id": 2,
-            "title": "Secret Levels",
-            "description": "Players can collect coins during matches to unlock hidden secret levels. These levels offer unique challenges, surprising environments, and special rewards, making exploration and coin collection a key element of the gameplay."
-          },
-          {
-            "id": 3,
-            "title": "Dynamic Soundtrack",
-            "description": "The soundtrack adapts to the game’s intensity, enhancing player engagement and immersion during the most frantic gameplay moments."
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "title": "CONTRIBUTORS",
-        "subsections": [
-          {
-            "id": 1,
-            "title": "Game Design and Development",
-            "description": "The design and development of Redshift required a combination of intuitive gameplay, captivating visual design, and progressive challenges. The optimization of the collision system ensures smooth and precise responses, enhancing the player’s experience."
-          },
-          {
-            "id": 2,
-            "title": "Visual and Animation Design",
-            "description": "The minimalist visual design was crafted to keep the player’s focus sharp, while fluid animations emphasize the visual impact of the gameplay and improve readability in complex game situations. Vibrant colors and dynamic transitions enrich the overall visual experience."
-          },
-          {
-            "id": 3,
-            "title": "Sound and Music Design",
-            "description": "The dynamic soundtrack and synchronized sound effects enhance gameplay tension and drive the action’s rhythm. Each sound element was calibrated to provide clear and satisfying feedback to the player."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": 1,
-    "title": "REDSHIFT",
-    "year": 2017,
-    "status": "completed",
-    "description": "Precision and reflexes are essential to survive an unrelenting barrage of geometric shapes.",
-    "tags": [
-      {"id": 1, "title": "Android Game"},
-      {"id": 2, "title": "UNITY"},
-      {"id": 3, "title": "Arcade"},
-      {"id": 4, "title": "Skill-based"}
-    ],
-    "sections": [
-      {
-        "id": 1,
-        "title": "OVERVIEW",
-        "description": "Redshift is a captivating 2D arcade game where players must dodge a continuous flow of fast-moving geometric shapes. Developed in Unity, the game offers a dynamic and engaging challenge, testing the player’s precision and reflexes. With a minimalist design, simple yet responsive controls, and a pulsating soundtrack, Redshift delivers a frantic and immersive experience that keeps players constantly focused."
-      },
-      {
-        "id": 2,
-        "title": "GAMEPLAY FEATURES",
-        "subsections": [
-          {
-            "id": 1,
-            "title": "Progressive Difficulty",
-            "description": "The game’s pace increases progressively, with geometric shapes becoming faster and more complex to avoid. Each level introduces new configurations and movement patterns that challenge even the most skilled players."
-          },
-          {
-            "id": 2,
-            "title": "Secret Levels",
-            "description": "Players can collect coins during matches to unlock hidden secret levels. These levels offer unique challenges, surprising environments, and special rewards, making exploration and coin collection a key element of the gameplay."
-          },
-          {
-            "id": 3,
-            "title": "Dynamic Soundtrack",
-            "description": "The soundtrack adapts to the game’s intensity, enhancing player engagement and immersion during the most frantic gameplay moments."
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "title": "CONTRIBUTORS",
-        "subsections": [
-          {
-            "id": 1,
-            "title": "Game Design and Development",
-            "description": "The design and development of Redshift required a combination of intuitive gameplay, captivating visual design, and progressive challenges. The optimization of the collision system ensures smooth and precise responses, enhancing the player’s experience."
-          },
-          {
-            "id": 2,
-            "title": "Visual and Animation Design",
-            "description": "The minimalist visual design was crafted to keep the player’s focus sharp, while fluid animations emphasize the visual impact of the gameplay and improve readability in complex game situations. Vibrant colors and dynamic transitions enrich the overall visual experience."
-          },
-          {
-            "id": 3,
-            "title": "Sound and Music Design",
-            "description": "The dynamic soundtrack and synchronized sound effects enhance gameplay tension and drive the action’s rhythm. Each sound element was calibrated to provide clear and satisfying feedback to the player."
-          }
-        ]
-      }
-    ]
-  }
+    }
 ]
