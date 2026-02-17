@@ -1,6 +1,6 @@
 <template>
 	<div class="app flex justify-center" @click="closeNavbar">
-		<background-effect></background-effect>
+
 
 		<!-- Hamburger Menu -->
 		<div 
