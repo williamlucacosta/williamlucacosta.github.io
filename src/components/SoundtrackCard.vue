@@ -100,4 +100,10 @@ onUnmounted(() => { audioPlayer.value?.pause(); });
     white-space: nowrap;
     max-width: 100%;
 }
+
+@media (max-width: 640px) {
+    .pf-tm-desc {
+        display: none;
+    }
+}
 </style>
