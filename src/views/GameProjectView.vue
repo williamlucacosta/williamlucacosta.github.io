@@ -1,71 +1,72 @@
 <template>
     <div class="project-details-page" v-if="currentProject">
-        <!-- Back Navigation (Floating) -->
-        <nav class="floating-nav">
-             <button class="back-btn" @click="router.back()">
-                <span class="arrow">←</span> Back
-             </button>
-        </nav>
+        <!-- Floating back -->
+        <button class="nav-floater" @click="router.back()">
+            <span class="arr" aria-hidden="true">←</span>
+            <span class="label">Projects</span>
+        </button>
 
-        <!-- Hero Section -->
+        <!-- Hero / Banner -->
         <header class="hero-section">
-            <div class="hero-bg-wrapper">
-                <img class="hero-img" :src="bannerImagePath" alt="Project Banner">
+            <div class="hero-bg-wrapper" aria-hidden="true">
+                <img v-if="bannerImagePath" class="hero-img" :src="bannerImagePath" alt="" />
+                <div class="hero-radial"></div>
                 <div class="hero-overlay"></div>
-                <div class="hero-grain"></div>
             </div>
-            
-            <div class="hero-content container">
-                <div class="hero-meta">
-                    <span class="year-badge">{{ currentProject.year }}</span>
-                    <span class="divider">/</span>
-                    <span class="status-text">{{ currentProject.status }}</span>
+
+            <div class="hero-content">
+                <div class="hero-eyebrow">
+                    <span class="hero-year">{{ currentProject.year }}</span>
+                    <span class="hero-sep" aria-hidden="true"></span>
+                    <span class="hero-status">{{ currentProject.status }}</span>
                 </div>
+
                 <h1 class="project-title">{{ currentProject.title }}</h1>
                 <p class="project-lead">{{ currentProject.description }}</p>
-                
-                <div class="scroll-indicator">
-                    <span class="mouse">
-                        <span class="wheel"></span>
-                    </span>
-                </div>
             </div>
         </header>
 
-        <!-- Main Content Grid -->
-        <main class="content-grid container">
-            <!-- Sidebar (Sticky) -->
+        <!-- Body grid -->
+        <main class="content-grid">
             <aside class="sidebar-col">
                 <div class="sticky-wrapper">
                     <div class="sidebar-block">
                         <h3 class="sidebar-label">Tech Stack</h3>
                         <div class="tags-list">
-                            <span v-for="tag in currentProject.tags" :key="tag.id" class="tech-pill">
-                                {{ tag.title }}
-                            </span>
+                            <span
+                                v-for="(tag, idx) in currentProject.tags"
+                                :key="tag.id"
+                                class="pf-tag"
+                                :class="{ b: idx === 0 }"
+                            >{{ tag.title }}</span>
                         </div>
                     </div>
 
-                    <!-- Optional: Add more meta blocks here if available (e.g. Platform, Roles) -->
                     <div class="sidebar-block">
                         <h3 class="sidebar-label">Platform</h3>
-                        <p class="sidebar-value">PC / Windows</p> <!-- Example static for now or add to JSON -->
+                        <p class="sidebar-value">PC / Windows</p>
                     </div>
                 </div>
             </aside>
 
-            <!-- Article Body -->
             <article class="article-col">
-                <section v-for="section in currentProject.sections" :key="section.id" class="content-section">
+                <section
+                    v-for="section in currentProject.sections"
+                    :key="section.id"
+                    class="content-section"
+                >
                     <h2 class="section-title">
-                        <span class="hash">#</span> {{ section.title }}
+                        <span class="hash" aria-hidden="true">#</span> {{ section.title }}
                     </h2>
-                    <p class="section-text">{{ section.description }}</p>
-                    
-                    <!-- Subsections -->
-                    <div v-for="sub in section.subsections" :key="sub.id" class="subsection">
-                         <h3 class="sub-title">{{ sub.title }}</h3>
-                         <p class="sub-text">{{ sub.description }}</p>
+                    <p v-if="section.description" class="section-text">{{ section.description }}</p>
+
+                    <div
+                        v-for="sub in section.subsections"
+                        :key="sub.id"
+                        class="subsection"
+                    >
+                        <h3 class="sub-title">{{ sub.title }}</h3>
+                        <p class="sub-text">{{ sub.description }}</p>
                     </div>
                 </section>
             </article>
@@ -97,52 +98,63 @@ const bannerImagePath = computed(() => {
 </script>
 
 <style scoped>
-/* Page Variables */
 .project-details-page {
-    background: #050505;
-    min-height: 100vh;
-    color: #EAEAEA;
-    font-family: 'Inter', sans-serif; /* Ensuring a clean base font */
+    background: var(--bg);
+    color: var(--text);
+    min-height: calc(100vh - 58px);
+    font-family: var(--fb);
+    position: relative;
 }
 
-/* Floating Nav */
-.floating-nav {
+/* Floating back — same as 3D model page */
+.nav-floater {
     position: fixed;
-    top: 24px;
+    top: 76px;
     left: 24px;
-    z-index: 100;
-}
-
-.back-btn {
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #FFF;
-    padding: 10px 20px;
-    border-radius: 100px;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 0.9rem;
-    display: flex;
+    z-index: 50;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
-    transition: all 0.2s ease;
+    padding: 8px 14px;
+    background: var(--chip-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border-h);
+    color: var(--text-2);
+    font-family: var(--fm);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
 }
 
-.back-btn:hover {
-    background: #FFF;
-    color: #000;
+.nav-floater:hover {
+    color: var(--accent-2);
+    border-color: var(--accent-b);
+    background: rgba(61, 139, 255, 0.06);
 }
 
-/* Hero Section */
+.nav-floater .arr {
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+.nav-floater:hover .arr {
+    transform: translateX(-3px);
+}
+
+/* Hero */
 .hero-section {
     position: relative;
-    height: 85vh;
+    min-height: 70vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    padding: 100px 52px 80px;
+    text-align: center;
 }
 
 .hero-bg-wrapper {
@@ -155,237 +167,219 @@ const bannerImagePath = computed(() => {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.6);
+    filter: saturate(0.85) brightness(0.55);
+    opacity: 0.7;
+}
+
+.hero-radial {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 60% 55% at 50% 50%, rgba(61, 139, 255, 0.10), transparent 70%);
+    pointer-events: none;
 }
 
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, #050505 0%, transparent 80%);
-}
-
-.hero-grain {
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-    pointer-events: none;
+    background: linear-gradient(to top, var(--bg) 0%, rgba(7, 7, 9, 0.4) 50%, transparent 100%);
 }
 
 .hero-content {
     position: relative;
     z-index: 10;
-    text-align: center;
-    max-width: 800px;
+    max-width: 820px;
+    width: 100%;
 }
 
-.hero-meta {
-    display: flex;
+.hero-eyebrow {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 14px;
     margin-bottom: 24px;
-    font-family: var(--font-mono);
+    font-family: var(--fm);
+    font-size: 10px;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: 0.8rem;
-    color: #AAA;
 }
 
-.year-badge {
-    color: var(--accent-blue, #3B82F6);
-    font-weight: 700;
+.hero-year {
+    color: var(--accent-2);
+}
+
+.hero-status {
+    color: var(--text-2);
+}
+
+.hero-sep {
+    width: 1px;
+    height: 11px;
+    background: var(--border-h);
+    display: inline-block;
 }
 
 .project-title {
-    font-family: 'SF Pro Display', sans-serif;
-    font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 800;
-    line-height: 0.95;
-    letter-spacing: -0.04em;
-    margin: 0 0 24px 0;
-    background: linear-gradient(180deg, #FFFFFF 0%, #AAAAAA 100%);
+    font-family: var(--fh);
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 600;
+    line-height: 0.96;
+    letter-spacing: -0.038em;
+    margin: 0 0 22px 0;
+    background: linear-gradient(170deg, #ffffff 32%, rgba(220, 232, 255, 0.55));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .project-lead {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #CCC;
+    font-family: var(--fb);
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-2);
     max-width: 600px;
     margin: 0 auto;
 }
 
-.scroll-indicator {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0.7;
-}
-
-.mouse {
-    width: 26px;
-    height: 42px;
-    border: 2px solid #FFF;
-    border-radius: 20px;
-    display: block;
-    position: relative;
-}
-
-.wheel {
-    width: 2px;
-    height: 6px;
-    background: #FFF;
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 2px;
-    animation: scroll 1.5s infinite;
-}
-
-@keyframes scroll {
-    0% { transform: translate(-50%, 0); opacity: 1; }
-    100% { transform: translate(-50%, 12px); opacity: 0; }
-}
-
-/* Content Grid */
+/* Content grid */
 .content-grid {
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 260px 1fr;
     gap: 60px;
-    padding-top: 80px;
-    padding-bottom: 120px;
     max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 52px 120px;
 }
 
-/* Sidebar */
 .sidebar-col {
     position: relative;
 }
 
 .sticky-wrapper {
     position: sticky;
-    top: 100px;
+    top: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
 
-.sidebar-block {
-    margin-bottom: 40px;
-}
+.sidebar-block { display: flex; flex-direction: column; gap: 14px; }
 
 .sidebar-label {
-    font-size: 0.75rem;
+    font-family: var(--fm);
+    font-size: 9px;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #666;
-    margin-bottom: 16px;
-    font-weight: 600;
-    border-bottom: 1px solid #222;
-    padding-bottom: 8px;
+    color: var(--text-3);
+    font-weight: 400;
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
 }
 
 .sidebar-value {
-    font-size: 0.95rem;
-    color: #DDD;
+    font-family: var(--fb);
+    font-size: 13px;
+    color: var(--text-2);
+    margin: 0;
 }
 
 .tags-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-}
-
-.tech-pill {
-    font-size: 0.8rem;
-    background: #111;
-    border: 1px solid #333;
-    padding: 6px 12px;
-    border-radius: 6px;
-    color: #BBB;
+    gap: 5px;
 }
 
 /* Article */
 .article-col {
     width: 100%;
+    min-width: 0;
 }
 
 .content-section {
-    margin-bottom: 80px;
+    margin-bottom: 60px;
+}
+
+.content-section:last-child {
+    margin-bottom: 0;
 }
 
 .section-title {
-    font-size: 2rem;
-    font-family: 'SF Pro Display', sans-serif;
-    font-weight: 700;
-    color: #FFF;
-    margin-bottom: 24px;
+    font-family: var(--fh);
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.018em;
+    color: var(--text);
+    margin: 0 0 20px 0;
     display: flex;
-    align-items: center;
-    gap: 8px;
+    align-items: baseline;
+    gap: 10px;
 }
 
 .hash {
-    color: var(--accent-blue, #3B82F6);
-    font-size: 1.5rem;
-    opacity: 0.5;
+    color: var(--accent-2);
+    font-family: var(--fm);
+    font-weight: 400;
+    font-size: 1rem;
 }
 
 .section-text {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #CCC;
-    margin-bottom: 32px;
+    font-family: var(--fb);
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--text-2);
+    margin: 0 0 28px 0;
 }
 
+.subsection {
+    border-left: 1px solid var(--border-h);
+    padding-left: 18px;
+    margin-bottom: 24px;
+}
+
+.subsection:last-child { margin-bottom: 0; }
+
 .sub-title {
-    font-size: 1.25rem;
-    color: #EEE;
-    margin-bottom: 12px;
+    font-family: var(--fh);
+    font-size: 1.05rem;
     font-weight: 600;
+    letter-spacing: -0.005em;
+    color: var(--text);
+    margin: 0 0 8px 0;
 }
 
 .sub-text {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: #999;
-    margin-bottom: 32px;
+    font-family: var(--fb);
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--text-2);
+    margin: 0;
 }
 
 /* Responsive */
 @media (max-width: 900px) {
+    .hero-section {
+        min-height: 60vh;
+        padding: 80px 24px 60px;
+    }
+
     .content-grid {
         grid-template-columns: 1fr;
         gap: 40px;
-        padding-top: 60px;
-    }
-    
-    .sticky-wrapper {
-        position: static;
-        display: flex;
-        flex-direction: column; /* Stack details */
-        gap: 24px;
-        border-bottom: 1px solid #222;
-        padding-bottom: 32px;
-        margin-bottom: 40px;
-    }
-    
-    .sidebar-block {
-        margin-bottom: 0;
-    }
-    
-    .project-title {
-        font-size: 3rem; /* Smaller on mobile */
-    }
-    
-    .hero-content {
-        padding: 0 16px;
+        padding: 60px 24px 100px;
     }
 
-    .back-btn {
-        background: rgba(0,0,0,0.8); /* More visible on mobile */
+    .sticky-wrapper {
+        position: static;
+        gap: 24px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-floater {
+        top: 70px;
+        left: 16px;
     }
 }
 </style>

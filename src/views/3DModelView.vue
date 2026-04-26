@@ -1,46 +1,42 @@
 <template>
     <div class="studio-page" v-if="currentProject">
-        
-        <!-- Left: Immersive 3D Space -->
+        <!-- Left: Immersive 3D viewport -->
         <div class="studio-viewport">
-            <ModelViewer 
-                :modelName="currentProject.title.toLowerCase()" 
+            <ModelViewer
+                :modelName="currentProject.title.toLowerCase()"
                 class="canvas-fill"
             />
-            
-            <!-- Floating Back Navigation -->
+
             <button class="nav-floater" @click="router.back()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M19 12H5M12 19l-7-7 7-7"/>
-                </svg>
+                <span class="arr" aria-hidden="true">←</span>
                 <span class="label">Library</span>
             </button>
-            
-            <div class="viewport-overlay-grad"></div>
+
+            <div class="viewport-overlay-grad" aria-hidden="true"></div>
         </div>
 
-        <!-- Right: Data Deck -->
-        <aside class="studio-sidebar custom-scrollbar">
-            <!-- Header Group -->
+        <!-- Right: Data deck -->
+        <aside class="studio-sidebar">
             <div class="sidebar-header">
                 <span class="project-year">{{ currentProject.year }}</span>
                 <h1 class="project-headline">{{ currentProject.title }}</h1>
                 <div class="tags-row">
-                    <span v-for="tag in currentProject.tags" :key="tag.id" class="tech-badge">
-                        {{ tag.title }}
-                    </span>
+                    <span
+                        v-for="(tag, idx) in currentProject.tags"
+                        :key="tag.id"
+                        class="pf-tag"
+                        :class="{ b: idx === 0 }"
+                    >{{ tag.title }}</span>
                 </div>
             </div>
 
             <div class="separator"></div>
 
-            <!-- Main Description -->
             <div class="sidebar-section">
                 <h2 class="section-label">Overview</h2>
                 <p class="body-text">{{ currentProject.description }}</p>
             </div>
 
-            <!-- Technical Specs Grid -->
             <div class="sidebar-section">
                 <h2 class="section-label">Technical Specs</h2>
                 <div class="specs-grid">
@@ -59,17 +55,15 @@
                 </div>
             </div>
 
-            <!-- Dynamic Sections -->
             <div class="sidebar-section" v-for="section in (currentProject as any).sections" :key="section.id">
                 <h2 class="section-label">{{ section.title }}</h2>
                 <p class="body-text mb-4">{{ section.description }}</p>
-                
+
                 <div v-for="sub in section.subsections" :key="sub.id" class="subsection">
                     <h3 class="sub-heading">{{ sub.title }}</h3>
                     <p class="body-text text-sm">{{ sub.description }}</p>
                 </div>
             </div>
-
         </aside>
     </div>
 </template>
@@ -79,7 +73,6 @@ import { computed } from 'vue';
 import models from '@/assets/data/models.json';
 import ModelViewer from "@/components/ModelViewer.vue";
 import router from '@/router';
-import { defineProps } from 'vue';
 
 // eslint-disable-next-line no-undef
 const props = defineProps<{ id: string | number }>();
@@ -90,20 +83,21 @@ const currentProject = computed(() => {
 </script>
 
 <style scoped>
+/* Page fills exactly the viewport area below the sticky nav (58px) */
 .studio-page {
     display: flex;
-    height: 100vh;
-    width: 100vw;
-    background: #050505;
+    width: 100%;
+    height: calc(100vh - 58px);
+    background: var(--bg);
+    color: var(--text);
     overflow: hidden;
-    padding-top: var(--nav-height);
 }
 
-/* LEFT: Viewport */
+/* LEFT — viewport */
 .studio-viewport {
     flex: 1;
     position: relative;
-    background: radial-gradient(circle at center, #151515 0%, #000 100%);
+    background: radial-gradient(ellipse at 50% 45%, #0e1426 0%, #070709 78%);
     overflow: hidden;
 }
 
@@ -116,181 +110,206 @@ const currentProject = computed(() => {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: radial-gradient(circle at 50% 50%, transparent 80%, rgba(0,0,0,0.6) 100%);
+    background: radial-gradient(circle at 50% 50%, transparent 70%, rgba(7, 7, 9, 0.65) 100%);
 }
 
+/* Floating back button — hairline + sapphire on hover */
 .nav-floater {
     position: absolute;
-    top: 24px;
-    left: 24px;
+    top: 18px;
+    left: 18px;
     z-index: 50;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 8px 16px;
-    color: var(--text-ash);
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
+    padding: 8px 14px;
+    background: var(--chip-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border-h);
+    color: var(--text-2);
+    font-family: var(--fm);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
 }
 
 .nav-floater:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--accent-2);
+    border-color: var(--accent-b);
+    background: rgba(61, 139, 255, 0.06);
 }
 
-.nav-floater .icon {
-    font-family: 'Material Icons', sans-serif; /* Fallback if available, or text */
-    font-size: 1.1em;
+.nav-floater .arr {
+    display: inline-block;
+    transition: transform 0.25s ease;
 }
 
-/* RIGHT: Sidebar */
+.nav-floater:hover .arr {
+    transform: translateX(-3px);
+}
+
+/* RIGHT — sidebar (own scroll, no whole-page scroll) */
 .studio-sidebar {
-    width: 450px;
-    background: #080808;
-    border-left: 1px solid #222;
+    width: 420px;
+    flex-shrink: 0;
+    background: var(--surface);
+    border-left: 1px solid var(--border);
     overflow-y: auto;
-    padding: 40px;
+    padding: 40px 36px;
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 28px;
 }
 
-/* Responsive collapse */
-@media (max-width: 1000px) {
-    .studio-page {
-        flex-direction: column;
-        height: auto;
-        overflow-y: auto;
-    }
-    
-    .studio-viewport {
-        height: 60vh;
-        flex: none;
-    }
-    
-    .studio-sidebar {
-        width: 100%;
-        height: auto;
-        border-left: none;
-        border-top: 1px solid #222;
-    }
+.studio-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+.studio-sidebar::-webkit-scrollbar-thumb {
+    background: var(--border-h);
+    border-radius: 3px;
 }
 
-/* Typography & Content */
+/* Header */
 .sidebar-header {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
 }
 
 .project-year {
-    font-family: var(--font-mono);
-    color: var(--accent-blue);
-    font-size: 0.85rem;
+    font-family: var(--fm);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--accent-2);
 }
 
 .project-headline {
-    font-size: 2.5rem;
-    font-weight: 700;
-    line-height: 1.1;
-    color: #FFF;
+    font-family: var(--fh);
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 1.04;
+    letter-spacing: -0.028em;
     margin: 0;
+    color: var(--text);
+    background: linear-gradient(170deg, #ffffff 32%, rgba(220, 232, 255, 0.55));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .tags-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 5px;
 }
 
-.tech-badge {
-    font-size: 0.75rem;
-    color: #888;
-    background: #151515;
-    border: 1px solid #333;
-    padding: 4px 10px;
-    border-radius: 4px;
-}
-
+/* Separator */
 .separator {
     height: 1px;
-    background: #222;
+    background: var(--border);
     width: 100%;
 }
 
+/* Sections */
 .section-label {
+    font-family: var(--fm);
+    font-size: 9px;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: 0.75rem;
-    color: #666;
-    margin-bottom: 16px;
-    font-weight: 600;
-}
-
-.body-text {
-    font-size: 1rem;
-    color: var(--text-cloud);
-    line-height: 1.6;
+    color: var(--text-3);
+    margin-bottom: 14px;
     font-weight: 400;
 }
 
-.text-sm {
-    font-size: 0.9rem;
+.body-text {
+    font-family: var(--fb);
+    font-size: 13px;
+    color: var(--text-2);
+    line-height: 1.65;
 }
 
-.mb-4 {
-    margin-bottom: 16px;
-}
+.body-text.text-sm { font-size: 12px; }
+.body-text.mb-4 { margin-bottom: 14px; }
 
-/* Specs Grid */
+/* Specs grid */
 .specs-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 10px;
 }
 
 .spec-item {
-    background: #111;
+    background: var(--surface-h);
+    border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 12px;
+    padding: 12px 14px;
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
 .spec-label {
-    font-size: 0.7rem;
-    color: #666;
+    font-family: var(--fm);
+    font-size: 8.5px;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
+    color: var(--accent-2);
 }
 
 .spec-value {
-    font-size: 0.9rem;
-    color: #DDD;
-    font-weight: 500;
+    font-family: var(--fb);
+    font-size: 12.5px;
+    color: var(--text);
+    font-weight: 400;
 }
 
 .spec-value.highlight {
-    color: var(--accent-blue);
+    color: var(--accent-2);
+    font-family: var(--fm);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+/* Subsections */
+.subsection {
+    margin-top: 14px;
+    border-left: 1px solid var(--border-h);
+    padding-left: 14px;
 }
 
 .sub-heading {
-    color: #FFF;
-    font-size: 1.1rem;
-    margin-bottom: 8px;
+    font-family: var(--fh);
     font-weight: 600;
+    font-size: 14px;
+    letter-spacing: -0.005em;
+    color: var(--text);
+    margin: 0 0 6px 0;
 }
 
-.subsection {
-    margin-bottom: 24px;
-    border-left: 2px solid #333;
-    padding-left: 16px;
+/* Responsive */
+@media (max-width: 1000px) {
+    .studio-page {
+        flex-direction: column;
+        height: auto;
+        min-height: calc(100vh - 58px);
+        overflow: visible;
+    }
+
+    .studio-viewport {
+        height: 56vh;
+        flex: none;
+    }
+
+    .studio-sidebar {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid var(--border);
+        padding: 32px 24px;
+    }
 }
 </style>

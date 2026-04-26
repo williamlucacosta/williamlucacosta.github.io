@@ -1,120 +1,96 @@
 <template>
-    <nav class="navbar-fixed">
-        <div class="nav-container container">
-            <!-- Brand -->
-            <router-link to="/" class="brand">
-                LC
-            </router-link>
+    <nav class="pf-nav">
+        <router-link to="/" class="pf-logo" @click="$emit('navigate')">
+            <span class="pf-logo-mk">LC</span>
+            <span class="pf-logo-text">Luca Costa</span>
+        </router-link>
 
-            <!-- Links -->
-            <div class="nav-links">
-                <router-link to="/" class="nav-item">About</router-link>
-                <router-link to="/game-projects" class="nav-item">Projects</router-link>
-                <router-link to="/3d-models" class="nav-item">3D Models</router-link>
-                <router-link to="/soundtracks" class="nav-item">Audio</router-link>
-            </div>
-        </div>
+        <ul class="pf-nav-links">
+            <li><router-link to="/" @click="$emit('navigate')">About</router-link></li>
+            <li><router-link to="/game-projects" @click="$emit('navigate')">Projects</router-link></li>
+            <li><router-link to="/3d-models" @click="$emit('navigate')">3D Models</router-link></li>
+            <li><router-link to="/soundtracks" @click="$emit('navigate')">Audio</router-link></li>
+        </ul>
     </nav>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({ name: 'NavbarComponent' });
+<script setup lang="ts">
+/* eslint-disable vue/multi-word-component-names */
+// eslint-disable-next-line no-undef
+defineOptions({ name: 'AppNavbar' });
+
+// eslint-disable-next-line no-undef
+defineEmits<{ (e: 'navigate'): void }>();
 </script>
 
 <style scoped>
-.navbar-fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: var(--nav-height);
-    background: rgba(5, 5, 5, 0.8);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-dim);
-    z-index: 100;
-    display: flex;
-    align-items: center;
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-}
-
-.brand {
+.pf-logo-text {
+    font-family: var(--fh);
+    font-size: 13px;
     font-weight: 700;
-    font-size: 1.8rem; /* Increased from 1.5rem */
-    letter-spacing: -0.04em;
-    color: var(--text-white);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
 }
 
-.nav-links {
-    display: flex;
-    gap: 32px;
-}
-
-.nav-item {
-    font-size: 1.25rem; /* Increased from 1.1rem */
-    color: var(--text-cloud);
-    font-weight: 500;
-}
-
-.nav-item:hover {
-    color: var(--text-white);
-}
-
-.router-link-exact-active {
-    color: var(--text-white);
-}
-
-/* Mobile Overlay Styles */
 @media (max-width: 1023px) {
-    .navbar-fixed {
+    .pf-nav {
         position: fixed;
         inset: 0;
         height: 100vh;
         width: 100vw;
-        background: rgba(5, 5, 5, 0.95);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
         flex-direction: column;
-        justify-content: center; /* Center vertically */
-        padding: 40px;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+        padding: 60px 24px;
+        background: rgba(7, 7, 9, 0.96);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border-bottom: none;
         transform: translateY(-100%);
         transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-        border-bottom: none;
+        z-index: 150;
     }
 
-    .navbar-fixed.visible {
+    .pf-nav.mobile-visible {
         transform: translateY(0);
     }
 
-    .nav-container {
+    .pf-logo {
         flex-direction: column;
-        justify-content: center;
-        gap: 60px;
-        width: 100%;
-        height: auto;
+        gap: 14px;
     }
 
-    .brand {
-        font-size: 2rem;
-        margin-bottom: 20px;
+    .pf-logo-mk {
+        width: 44px;
+        height: 44px;
+        font-size: 14px;
     }
 
-    .nav-links {
+    .pf-logo-text {
+        font-size: 18px;
+    }
+
+    .pf-nav-links {
         flex-direction: column;
-        align-items: center;
-        gap: 32px;
+        gap: 28px;
     }
 
-    .nav-item {
-        font-size: 2rem; /* Large text for mobile */
-        font-weight: 700;
+    .pf-nav-links a {
+        font-family: var(--fh);
+        font-size: 1.5rem;
+        font-weight: 600;
         letter-spacing: -0.02em;
+        text-transform: none;
+        color: var(--text);
+    }
+
+    .pf-nav-links a.router-link-exact-active::after {
+        bottom: -8px;
+        left: 50%;
+        right: auto;
+        width: 24px;
+        transform: translateX(-50%);
     }
 }
 </style>
