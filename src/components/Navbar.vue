@@ -2,7 +2,6 @@
     <nav class="pf-nav">
         <router-link to="/" class="pf-logo" @click="$emit('navigate')">
             <span class="pf-logo-mk">LC</span>
-            <span class="pf-logo-text">Luca Costa</span>
         </router-link>
 
         <ul class="pf-nav-links">
@@ -24,14 +23,6 @@ defineEmits<{ (e: 'navigate'): void }>();
 </script>
 
 <style scoped>
-.pf-logo-text {
-    font-family: var(--fh);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-}
-
 @media (max-width: 1023px) {
     .pf-nav {
         position: fixed;
@@ -56,18 +47,7 @@ defineEmits<{ (e: 'navigate'): void }>();
         transform: translateY(0);
     }
 
-    .pf-logo {
-        flex-direction: column;
-        gap: 14px;
-    }
-
     .pf-logo-mk {
-        width: 44px;
-        height: 44px;
-        font-size: 14px;
-    }
-
-    .pf-logo-text {
         font-size: 18px;
     }
 
