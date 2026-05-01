@@ -3,10 +3,20 @@
         <!-- HERO — full viewport, name vertically centered -->
         <section class="pf-hero pf-hero--full">
             <div class="pf-kick">
-                <span>Portfolio · 2025</span>
+                <span>Portfolio · 2026</span>
             </div>
 
-            <h1 class="pf-name">Luca Costa</h1>
+            <h1 class="pf-name pf-name--anim" aria-label="Luca Costa">
+                <span
+                    v-for="(ch, i) in nameChars"
+                    :key="i"
+                    class="pf-name-c"
+                    :class="{ 'pf-name-period': ch === '.', 'pf-name-space': ch === ' ' }"
+                    :style="{ animationDelay: (i * 45) + 'ms' }"
+                    aria-hidden="true"
+                    v-html="renderChar(ch)"
+                ></span>
+            </h1>
 
             <div class="pf-roles">
                 <span class="pf-role">Software Engineer</span>
@@ -26,15 +36,26 @@
                 </a>
             </div>
 
-            <a class="pf-scroll-cue" href="#capabilities" aria-label="Scroll to capabilities">
+            <a class="pf-scroll-cue" href="#about" aria-label="Scroll to about">
                 <span class="pf-scroll-cue-label">Scroll</span>
                 <span class="pf-scroll-cue-line" aria-hidden="true"></span>
             </a>
         </section>
 
+        <!-- ABOUT -->
+        <section id="about" class="pf-bio">
+            <div class="pf-bio-head">
+                <span class="pf-bio-eye">01 / About</span>
+            </div>
+            <p class="pf-bio-text">
+                I build small, strange things — games that feel like music, tools that feel like instruments, and worlds that reward being paid attention to.
+                <span class="pf-bio-dim">Currently based in Italy, working across engineering, game design, 3D art and sound. Ten years in, I'm still chasing the feeling of making something that doesn't already exist.</span>
+            </p>
+        </section>
+
         <!-- SKILLS -->
         <section id="capabilities" class="pf-skills">
-            <div class="pf-eyebrow"><span>Capabilities</span></div>
+            <div class="pf-eyebrow"><span>02 / Toolkit</span></div>
 
             <div class="pf-skills-g">
                 <div class="pf-sk" v-for="(group, idx) in skills" :key="group.name">
@@ -50,6 +71,16 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
+
+const fullName = 'Luca Costa';
+const nameChars = computed(() => fullName.split(''));
+
+const renderChar = (ch: string): string => {
+    if (ch === ' ') return '&nbsp;';
+    return ch;
+};
+
 const skills = [
     {
         name: 'Engineering',

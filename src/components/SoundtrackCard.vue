@@ -1,96 +1,86 @@
 <template>
-  <div class="pf-tr" :class="{ on: isPlaying }" @click="togglePlay">
     <button
-      class="pf-tp"
-      type="button"
-      :aria-label="isPlaying ? 'Pause' : 'Play'"
-      @click.stop="togglePlay"
+        class="pf-tr"
+        :class="{ on: isActive, playing: isActive && playing }"
+        type="button"
+        @click="$emit('select', id)"
     >
-      <span v-if="!isPlaying" class="pf-tp-pi" aria-hidden="true"></span>
-      <span v-else class="pf-tp-pa" aria-hidden="true">
-        <span></span><span></span>
-      </span>
+        <span class="pf-tnum">{{ String(id).padStart(2, '0') }}</span>
+
+        <div class="pf-tinfo">
+            <div class="pf-tt">{{ title }}</div>
+            <div class="pf-tm">
+                <span class="pf-tyr">{{ year }}</span>
+                <span class="pf-tm-desc">{{ description }}</span>
+            </div>
+        </div>
+
+        <div class="pf-twave-row">
+            <Waveform
+                :src="audioSrc"
+                :progress="isActive ? progress : 0"
+                :buckets="64"
+                variant="row"
+                :color="isActive ? 'rgba(106, 166, 255, 0.22)' : 'rgba(238, 242, 251, 0.16)'"
+                :color-played="isActive ? '#6aa6ff' : 'rgba(238, 242, 251, 0.4)'"
+                @meta="onMeta"
+            />
+        </div>
+
+        <span class="pf-tdur">{{ formattedDuration }}</span>
+
+        <span class="pf-tp" aria-hidden="true">
+            <span v-if="!(isActive && playing)" class="pf-tp-pi"></span>
+            <span v-else class="pf-tp-pa"><span></span><span></span></span>
+        </span>
     </button>
-
-    <div>
-      <div class="pf-tt">{{ title }}</div>
-      <div class="pf-tm">
-        <span class="pf-tyr">{{ year }}</span>
-        <span class="pf-tm-desc">{{ description }}</span>
-      </div>
-    </div>
-
-    <span class="pf-tdur">{{ duration || '—:—' }}</span>
-
-    <audio ref="audioPlayer" :src="audioSrc" @ended="onEnded" @loadedmetadata="onMeta"></audio>
-  </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, onUnmounted, computed, watch } from "vue";
+import { computed, ref } from 'vue';
+import Waveform from '@/components/AudioWaveform.vue';
 
 // eslint-disable-next-line no-undef
 const props = defineProps<{
-  id: number;
-  activeId: number | null;
-  title: string;
-  year: number;
-  description: string;
+    id: number;
+    title: string;
+    year: number;
+    description: string;
+    isActive: boolean;
+    playing: boolean;
+    progress: number;
 }>();
 
 // eslint-disable-next-line no-undef
-const emit = defineEmits(['play-start']);
+defineEmits<{ (e: 'select', id: number): void }>();
 
-const isPlaying = ref(false);
-const duration = ref<string>('');
-const audioPlayer = ref<HTMLAudioElement | null>(null);
+const decodedDuration = ref<number | null>(null);
 
 const audioSrc = computed(() => {
     try {
         const fileName = props.title.replace(/ /g, '-');
         return require(`@/assets/audio/${fileName}.mp3`);
     } catch (e) {
-        return "";
+        return '';
     }
 });
 
-const togglePlay = () => {
-    if (!audioPlayer.value) return;
-    if (isPlaying.value) {
-        audioPlayer.value.pause();
-    } else {
-        audioPlayer.value.play();
-        emit('play-start', props.id);
-    }
-    isPlaying.value = !isPlaying.value;
+const onMeta = (payload: { duration: number }) => {
+    decodedDuration.value = payload.duration;
 };
 
-watch(() => props.activeId, (newId) => {
-    if (newId !== props.id && isPlaying.value) {
-        if (audioPlayer.value) {
-            audioPlayer.value.pause();
-            audioPlayer.value.currentTime = 0;
-        }
-        isPlaying.value = false;
-    }
-});
-
-const onEnded = () => { isPlaying.value = false; };
-
-const onMeta = () => {
-    const sec = audioPlayer.value?.duration ?? 0;
-    if (!sec || !isFinite(sec)) return;
+const formattedDuration = computed(() => {
+    const sec = decodedDuration.value;
+    if (sec === null || !isFinite(sec)) return '—:—';
     const m = Math.floor(sec / 60);
     const s = Math.floor(sec % 60).toString().padStart(2, '0');
-    duration.value = `${m}:${s}`;
-};
-
-onUnmounted(() => { audioPlayer.value?.pause(); });
+    return `${m}:${s}`;
+});
 </script>
 
 <style scoped>
 .pf-tm-desc {
-    font-family: var(--fb);
+    font-family: var(--fm);
     font-size: 11px;
     color: var(--text-3);
     letter-spacing: 0.02em;
@@ -101,7 +91,7 @@ onUnmounted(() => { audioPlayer.value?.pause(); });
     max-width: 100%;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
     .pf-tm-desc {
         display: none;
     }

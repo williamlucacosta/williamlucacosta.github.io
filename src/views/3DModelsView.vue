@@ -2,7 +2,7 @@
     <div>
         <header class="pf-sec-head">
             <span class="pf-sec-eye">Assets &amp; Environments</span>
-            <h1 class="pf-sec-title">3D Models</h1>
+            <h1 class="pf-sec-title">3D <em>Models</em></h1>
             <p class="pf-sec-desc">High-fidelity 3D assets for games and simulation — modeled, textured, and rendered.</p>
         </header>
 

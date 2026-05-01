@@ -1,6 +1,8 @@
 <template>
     <div class="pf">
         <div class="pf-bg" aria-hidden="true"></div>
+        <BackgroundCanvas />
+        <div class="pf-vignette" aria-hidden="true"></div>
 
         <div class="pf-shell">
             <!-- Hamburger (mobile) -->
@@ -35,6 +37,7 @@
 import { ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import Navbar from "@/components/Navbar.vue";
+import BackgroundCanvas from "@/components/BackgroundCanvas.vue";
 import "./assets/styles/base.css";
 import "./assets/styles/media-query.css";
 

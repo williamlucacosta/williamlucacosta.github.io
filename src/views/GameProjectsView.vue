@@ -1,9 +1,9 @@
 <template>
     <div>
         <header class="pf-sec-head">
-            <span class="pf-sec-eye">Selected Work</span>
-            <h1 class="pf-sec-title">Game Projects</h1>
-            <p class="pf-sec-desc">Selected works in game design and engineering — Unity, real-time prototypes, and finished releases.</p>
+            <span class="pf-sec-eye">Selected Works · 2017 — 2024</span>
+            <h1 class="pf-sec-title">Projects <em>&amp; Experiments</em></h1>
+            <p class="pf-sec-desc">Games and interactive systems I've designed, built, and shipped. Each one an excuse to learn something new.</p>
         </header>
 
         <section class="pf-work">
