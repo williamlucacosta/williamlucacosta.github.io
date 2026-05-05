@@ -134,9 +134,10 @@ let prog: WebGLProgram | null = null;
 let uLoc: Record<string, WebGLUniformLocation | null> = {};
 let startTs = 0;
 let DPR = 1;
-const mouse = { x: 0.5, y: 0.5 };
 let scrollTarget = 0;
 let scrollSmoothed = 0;
+let resizeRaf = 0;
+let isPaused = false;
 
 function compile(g: WebGLRenderingContext, type: number, src: string) {
     const sh = g.createShader(type);
@@ -151,30 +152,38 @@ function compile(g: WebGLRenderingContext, type: number, src: string) {
     return sh;
 }
 
-function resize() {
+function applyResize() {
     const c = canvasEl.value;
     if (!c || !gl) return;
     const W = window.innerWidth;
     const H = window.innerHeight;
-    c.width = Math.max(1, Math.floor(W * DPR));
-    c.height = Math.max(1, Math.floor(H * DPR));
-    c.style.width = W + 'px';
-    c.style.height = H + 'px';
-    gl.viewport(0, 0, c.width, c.height);
+    const cw = Math.max(1, Math.floor(W * DPR));
+    const ch = Math.max(1, Math.floor(H * DPR));
+    if (c.width !== cw || c.height !== ch) {
+        c.width = cw;
+        c.height = ch;
+        c.style.width = W + 'px';
+        c.style.height = H + 'px';
+        gl.viewport(0, 0, cw, ch);
+        gl.uniform2f(uLoc.res, cw, ch);
+    }
 }
 
-function pushUniforms(time: number) {
-    if (!gl || !prog) return;
-    const c = canvasEl.value;
-    if (!c) return;
-    gl.uniform2f(uLoc.res, c.width, c.height);
-    gl.uniform1f(uLoc.t, time * 0.001);
-    gl.uniform2f(uLoc.mouse, mouse.x, mouse.y);
+function onResize() {
+    if (resizeRaf) return;
+    resizeRaf = requestAnimationFrame(() => {
+        resizeRaf = 0;
+        applyResize();
+    });
+}
+
+function setStaticUniforms() {
+    if (!gl) return;
+    gl.uniform2f(uLoc.mouse, 0.5, 0.5);
     gl.uniform1f(uLoc.intensity, CFG.intensity);
     gl.uniform1f(uLoc.warp, CFG.warp);
     gl.uniform1f(uLoc.grain, CFG.grain);
     gl.uniform1f(uLoc.vignette, CFG.vignette);
-    gl.uniform1f(uLoc.scroll, scrollSmoothed);
     gl.uniform3fv(uLoc.bg, CFG.bg);
     gl.uniform3fv(uLoc.c1, CFG.c1);
     gl.uniform3fv(uLoc.c2, CFG.c2);
@@ -183,21 +192,35 @@ function pushUniforms(time: number) {
 }
 
 function frame(now: number) {
-    if (!now) now = performance.now();
     if (!gl || !prog) return;
+    if (!now) now = performance.now();
     scrollSmoothed += (scrollTarget - scrollSmoothed) * 0.06;
-    gl.useProgram(prog);
-    pushUniforms(now - startTs);
-    gl.clearColor(CFG.bg[0], CFG.bg[1], CFG.bg[2], 1.0);
-    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.uniform1f(uLoc.t, (now - startTs) * 0.001);
+    gl.uniform1f(uLoc.scroll, scrollSmoothed);
     gl.drawArrays(gl.TRIANGLES, 0, 6);
     rafId = requestAnimationFrame(frame);
 }
 
+let scrollRaf = 0;
 function onScroll() {
-    const y = window.scrollY || document.documentElement.scrollTop || 0;
-    const h = window.innerHeight || 1;
-    scrollTarget = y / h;
+    if (scrollRaf) return;
+    scrollRaf = requestAnimationFrame(() => {
+        scrollRaf = 0;
+        const y = window.scrollY || document.documentElement.scrollTop || 0;
+        const h = window.innerHeight || 1;
+        scrollTarget = y / h;
+    });
+}
+
+function onVisibilityChange() {
+    if (document.hidden) {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = 0;
+        isPaused = true;
+    } else if (isPaused && gl && prog) {
+        isPaused = false;
+        rafId = requestAnimationFrame(frame);
+    }
 }
 
 function initCanvas2DFallback() {
@@ -205,13 +228,9 @@ function initCanvas2DFallback() {
     if (!c) return;
     const ctx = c.getContext('2d');
     if (!ctx) return;
-    const _resize = () => {
+    const draw = () => {
         c.width = window.innerWidth;
         c.height = window.innerHeight;
-    };
-    _resize();
-    window.addEventListener('resize', _resize);
-    const _draw = () => {
         const w = c.width, h = c.height;
         ctx.fillStyle = '#02040a';
         ctx.fillRect(0, 0, w, h);
@@ -220,9 +239,9 @@ function initCanvas2DFallback() {
         g.addColorStop(1, 'rgba(2,4,10,0)');
         ctx.fillStyle = g;
         ctx.fillRect(0, 0, w, h);
-        rafId = requestAnimationFrame(_draw);
     };
-    _draw();
+    draw();
+    window.addEventListener('resize', draw);
     isReady.value = true;
 }
 
@@ -236,7 +255,6 @@ onMounted(() => {
         antialias: false,
         premultipliedAlpha: false,
         alpha: false,
-        preserveDrawingBuffer: true,
     });
 
     if (!gl) {
@@ -293,25 +311,28 @@ onMounted(() => {
         hl: gl.getUniformLocation(prog, 'u_hl'),
     };
 
-    resize();
-    window.addEventListener('resize', resize);
+    setStaticUniforms();
+    applyResize();
+    window.addEventListener('resize', onResize);
     window.addEventListener('scroll', onScroll, { passive: true });
+    document.addEventListener('visibilitychange', onVisibilityChange);
     onScroll();
     scrollSmoothed = scrollTarget;
 
     startTs = performance.now();
-    pushUniforms(0);
     gl.clearColor(CFG.bg[0], CFG.bg[1], CFG.bg[2], 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT);
-    gl.drawArrays(gl.TRIANGLES, 0, 6);
     rafId = requestAnimationFrame(frame);
     setTimeout(() => { isReady.value = true; }, 80);
 });
 
 onBeforeUnmount(() => {
-    cancelAnimationFrame(rafId);
-    window.removeEventListener('resize', resize);
+    if (rafId) cancelAnimationFrame(rafId);
+    if (resizeRaf) cancelAnimationFrame(resizeRaf);
+    if (scrollRaf) cancelAnimationFrame(scrollRaf);
+    window.removeEventListener('resize', onResize);
     window.removeEventListener('scroll', onScroll);
+    document.removeEventListener('visibilitychange', onVisibilityChange);
 });
 </script>
 
