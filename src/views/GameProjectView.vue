@@ -99,7 +99,6 @@ const bannerImagePath = computed(() => {
 
 <style scoped>
 .project-details-page {
-    background: var(--bg);
     color: var(--text);
     min-height: calc(100vh - 58px);
     font-family: var(--fb);
@@ -168,7 +167,9 @@ const bannerImagePath = computed(() => {
     height: 100%;
     object-fit: cover;
     filter: saturate(0.85) brightness(0.55);
-    opacity: 0.7;
+    opacity: 0.65;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 92%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 92%);
 }
 
 .hero-radial {
@@ -182,7 +183,12 @@ const bannerImagePath = computed(() => {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, var(--bg) 0%, rgba(7, 7, 9, 0.4) 50%, transparent 100%);
+    background:
+        linear-gradient(to top,
+            rgba(4, 5, 10, 0) 0%,
+            rgba(4, 5, 10, 0.35) 35%,
+            rgba(4, 5, 10, 0.55) 65%,
+            transparent 100%);
 }
 
 .hero-content {

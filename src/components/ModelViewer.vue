@@ -243,43 +243,6 @@ function setupGround() {
     groundShadow.position.y = -0.001;
     groundShadow.receiveShadow = true;
     scene.add(groundShadow);
-
-    // Subtle sapphire halo under the subject — soft radial alpha texture, very low opacity
-    const glowTex = makeRadialAlphaTexture(256);
-    const glowGeo = new THREE.PlaneGeometry(4.0, 4.0);
-    const glowMat = new THREE.MeshBasicMaterial({
-        map: glowTex,
-        color: 0x3d8bff,
-        transparent: true,
-        opacity: 0.18,
-        depthWrite: false,
-        blending: THREE.AdditiveBlending,
-    });
-    const glow = new THREE.Mesh(glowGeo, glowMat);
-    glow.rotation.x = -Math.PI / 2;
-    glow.position.y = 0.003;
-    scene.add(glow);
-}
-
-function makeRadialAlphaTexture(size: number): THREE.Texture {
-    const c = document.createElement('canvas');
-    c.width = c.height = size;
-    const ctx = c.getContext('2d');
-    if (!ctx) return new THREE.Texture();
-    const r = size / 2;
-    const grad = ctx.createRadialGradient(r, r, 0, r, r, r);
-    // Bright core that fades to absolute zero — gentler than a flat disc
-    grad.addColorStop(0.00, 'rgba(255,255,255,0.85)');
-    grad.addColorStop(0.18, 'rgba(255,255,255,0.45)');
-    grad.addColorStop(0.45, 'rgba(255,255,255,0.12)');
-    grad.addColorStop(0.80, 'rgba(255,255,255,0.02)');
-    grad.addColorStop(1.00, 'rgba(255,255,255,0.00)');
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, size, size);
-    const tex = new THREE.CanvasTexture(c);
-    tex.colorSpace = THREE.SRGBColorSpace;
-    tex.needsUpdate = true;
-    return tex;
 }
 
 function loadModel(path: string) {

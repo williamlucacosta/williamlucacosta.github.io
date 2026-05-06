@@ -7,113 +7,47 @@
         </header>
 
         <section class="pf-audio">
-            <!-- HERO PLAYER -->
-            <div class="pf-hp" :class="{ live: isPlaying }">
-                <div class="pf-hp-top">
-                    <div class="pf-hp-state">
-                        <span class="pf-hp-dot" :class="{ live: isPlaying }" aria-hidden="true"></span>
-                        <span>{{ isPlaying ? 'Now Playing' : 'Ready' }}</span>
+            <article
+                v-for="coll in groupedCollections"
+                :key="coll.key"
+                class="pf-coll"
+            >
+                <div class="pf-coll-head">
+                    <div class="pf-coll-cover" :style="{ background: coll.gradient }">
+                        <span class="pf-coll-cover-tag">{{ coll.tag }}</span>
                     </div>
-                    <div class="pf-hp-index">
-                        {{ String(activeTrack.id).padStart(2, '0') }}
-                        <span class="pf-hp-index-sep">/</span>
-                        {{ String(soundtracks.length).padStart(2, '0') }}
+                    <div class="pf-coll-info">
+                        <span class="pf-coll-eye">{{ coll.kind }}</span>
+                        <h2 class="pf-coll-title">{{ coll.title }}</h2>
+                        <p class="pf-coll-sub">{{ coll.subtitle }}</p>
+                        <div class="pf-coll-meta">
+                            <span>{{ coll.tracks.length }} tracks</span>
+                            <span class="pf-coll-meta-sep" aria-hidden="true"></span>
+                            <span>{{ coll.yearRange }}</span>
+                            <span class="pf-coll-meta-sep" aria-hidden="true"></span>
+                            <span>{{ coll.totalDurationFmt }}</span>
+                        </div>
                     </div>
                 </div>
 
-                <h2 class="pf-hp-title">{{ activeTrack.title }}</h2>
-
-                <div class="pf-hp-meta">
-                    <span class="pf-hp-chip">{{ activeTrack.year }}</span>
-                    <span class="pf-hp-desc">{{ activeTrack.description }}</span>
-                </div>
-
-                <div class="pf-hp-wf">
-                    <Waveform
-                        :src="activeAudioSrc"
-                        :progress="heroProgress"
-                        :buckets="240"
-                        variant="hero"
-                        interactive
-                        color="rgba(106, 166, 255, 0.18)"
-                        color-played="#6aa6ff"
-                        @seek="onSeek"
-                        @meta="onActiveMeta"
+                <div class="pf-tlist">
+                    <SoundtrackCard
+                        v-for="track in coll.tracks"
+                        :key="track.id"
+                        :id="track.id"
+                        :title="track.title"
+                        :year="track.year"
+                        :description="track.description"
+                        :is-active="activeId === track.id"
+                        :playing="isPlaying && activeId === track.id"
+                        :progress="activeId === track.id && activeDuration > 0 ? currentTime / activeDuration : 0"
+                        :seekable="activeId === track.id"
+                        @select="selectTrack"
+                        @seek-ratio="onSeekRatio"
+                        @meta="onTrackMeta"
                     />
                 </div>
-
-                <div class="pf-hp-time">
-                    <span>{{ fmt(currentTime) }}</span>
-                    <span class="pf-hp-time-bar" aria-hidden="true"></span>
-                    <span>{{ fmt(activeDuration) }}</span>
-                </div>
-
-                <div class="pf-hp-bot">
-                    <div class="pf-hp-tx">
-                        <button class="pf-hp-tx-btn" type="button" :disabled="!hasPrev" @click="prevTrack" aria-label="Previous track">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                                <polygon points="19 20 9 12 19 4 19 20" fill="currentColor"></polygon>
-                                <line x1="5" y1="19" x2="5" y2="5"></line>
-                            </svg>
-                        </button>
-                        <button class="pf-hp-tx-play" type="button" @click="togglePlay" :aria-label="isPlaying ? 'Pause' : 'Play'">
-                            <svg v-if="!isPlaying" viewBox="0 0 24 24" aria-hidden="true">
-                                <polygon points="6 4 20 12 6 20 6 4" fill="currentColor"></polygon>
-                            </svg>
-                            <svg v-else viewBox="0 0 24 24" aria-hidden="true">
-                                <rect x="6" y="4" width="4" height="16" fill="currentColor"></rect>
-                                <rect x="14" y="4" width="4" height="16" fill="currentColor"></rect>
-                            </svg>
-                        </button>
-                        <button class="pf-hp-tx-btn" type="button" :disabled="!hasNext" @click="nextTrack" aria-label="Next track">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                                <polygon points="5 4 15 12 5 20 5 4" fill="currentColor"></polygon>
-                                <line x1="19" y1="5" x2="19" y2="19"></line>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="pf-hp-spec">
-                        <span class="pf-hp-spec-l">Source</span>
-                        <span class="pf-hp-spec-v">FL Studio · 320 kbps</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- STATS STRIP -->
-            <div class="pf-audio-stats">
-                <div class="pf-stat">
-                    <span class="pf-stat-l">Tracks</span>
-                    <span class="pf-stat-v">{{ String(soundtracks.length).padStart(2, '0') }}</span>
-                </div>
-                <div class="pf-stat">
-                    <span class="pf-stat-l">Span</span>
-                    <span class="pf-stat-v">{{ yearRange }}</span>
-                </div>
-                <div class="pf-stat">
-                    <span class="pf-stat-l">Genre</span>
-                    <span class="pf-stat-v">Game OST · Ambient</span>
-                </div>
-                <div class="pf-stat">
-                    <span class="pf-stat-l">Tools</span>
-                    <span class="pf-stat-v">FL Studio</span>
-                </div>
-            </div>
-
-            <!-- TRACK LIST -->
-            <div class="pf-tlist">
-                <SoundtrackCard
-                    v-for="track in soundtracks"
-                    :key="track.id"
-                    :id="track.id"
-                    :title="track.title"
-                    :year="track.year"
-                    :description="track.description"
-                    :is-active="activeId === track.id"
-                    :playing="isPlaying && activeId === track.id"
-                    :progress="activeId === track.id && activeDuration > 0 ? currentTime / activeDuration : 0"
-                    @select="selectTrack"
-                />
-            </div>
+            </article>
 
             <audio
                 ref="audioEl"
@@ -132,21 +66,41 @@
 <script setup lang="ts">
 import { ref, computed, watch, nextTick } from 'vue';
 import SoundtrackCard from '@/components/SoundtrackCard.vue';
-import Waveform from '@/components/AudioWaveform.vue';
 import soundtracks from '@/assets/data/soundtracks.json';
 
+type Track = typeof soundtracks[number] & { collection?: string };
+
+const COLLECTIONS: Record<string, { title: string; subtitle: string; kind: string; tag: string; gradient: string }> = {
+    'redshift': {
+        title: 'Redshift OST',
+        subtitle: 'Original soundtrack composed for Redshift — a frantic 2D arcade game.',
+        kind: 'Game OST',
+        tag: 'RX',
+        gradient: 'linear-gradient(135deg, #1a2549 0%, #0c1734 50%, #050810 100%)',
+    },
+    'no-hope': {
+        title: 'No Hope · Menu Loops',
+        subtitle: 'Work-in-progress menu themes exploring an unsettling, atmospheric direction.',
+        kind: 'Drafts',
+        tag: 'NH',
+        gradient: 'linear-gradient(135deg, #2a1230 0%, #160a26 50%, #07041a 100%)',
+    },
+};
+
 const audioEl = ref<HTMLAudioElement | null>(null);
-const activeId = ref<number>(soundtracks[0].id);
+const activeId = ref<number | null>(null);
 const isPlaying = ref(false);
 const currentTime = ref(0);
 const activeDuration = ref(0);
 
-const activeTrack = computed(() => {
-    const t = soundtracks.find(s => s.id === activeId.value);
-    return t ?? soundtracks[0];
+const trackDurations = ref<Record<number, number>>({});
+
+const activeTrack = computed<Track | undefined>(() => {
+    return soundtracks.find(s => s.id === activeId.value);
 });
 
 const activeAudioSrc = computed(() => {
+    if (!activeTrack.value) return '';
     try {
         const fileName = activeTrack.value.title.replace(/ /g, '-');
         return require(`@/assets/audio/${fileName}.mp3`);
@@ -155,28 +109,39 @@ const activeAudioSrc = computed(() => {
     }
 });
 
-const heroProgress = computed(() => {
-    if (!activeDuration.value) return 0;
-    return Math.max(0, Math.min(1, currentTime.value / activeDuration.value));
-});
-
-const yearRange = computed(() => {
-    const years = soundtracks.map(s => s.year);
-    const min = Math.min(...years);
-    const max = Math.max(...years);
-    return min === max ? String(min) : `${min} — ${max}`;
-});
-
-const activeIdx = computed(() => soundtracks.findIndex(s => s.id === activeId.value));
-const hasPrev = computed(() => activeIdx.value > 0);
-const hasNext = computed(() => activeIdx.value < soundtracks.length - 1);
-
 const fmt = (sec: number) => {
     if (!isFinite(sec) || sec < 0) return '0:00';
     const m = Math.floor(sec / 60);
     const s = Math.floor(sec % 60).toString().padStart(2, '0');
     return `${m}:${s}`;
 };
+
+const groupedCollections = computed(() => {
+    const order = ['redshift', 'no-hope'];
+    const byKey: Record<string, Track[]> = {};
+    for (const t of soundtracks as Track[]) {
+        const k = t.collection || 'misc';
+        (byKey[k] = byKey[k] || []).push(t);
+    }
+    const groups = order
+        .filter(k => byKey[k])
+        .map(k => {
+            const meta = COLLECTIONS[k];
+            const tracks = byKey[k];
+            const years = tracks.map(t => t.year);
+            const minY = Math.min(...years);
+            const maxY = Math.max(...years);
+            const totalSec = tracks.reduce((sum, t) => sum + (trackDurations.value[t.id] || 0), 0);
+            return {
+                key: k,
+                ...meta,
+                tracks,
+                yearRange: minY === maxY ? String(minY) : `${minY}—${maxY}`,
+                totalDurationFmt: totalSec > 0 ? fmt(totalSec) : '—',
+            };
+        });
+    return groups;
+});
 
 const selectTrack = async (id: number) => {
     if (activeId.value === id) {
@@ -197,16 +162,6 @@ const togglePlay = () => {
     else a.pause();
 };
 
-const prevTrack = () => {
-    if (!hasPrev.value) return;
-    selectTrack(soundtracks[activeIdx.value - 1].id);
-};
-
-const nextTrack = () => {
-    if (!hasNext.value) return;
-    selectTrack(soundtracks[activeIdx.value + 1].id);
-};
-
 const onTimeUpdate = () => {
     if (audioEl.value) currentTime.value = audioEl.value.currentTime;
 };
@@ -214,21 +169,30 @@ const onTimeUpdate = () => {
 const onLoadedMeta = () => {
     if (audioEl.value && isFinite(audioEl.value.duration)) {
         activeDuration.value = audioEl.value.duration;
+        if (activeId.value !== null) {
+            trackDurations.value[activeId.value] = audioEl.value.duration;
+        }
     }
 };
 
 const onEnded = () => {
     isPlaying.value = false;
-    if (hasNext.value) nextTrack();
+    if (activeId.value === null) return;
+    const idx = soundtracks.findIndex(t => t.id === activeId.value);
+    if (idx >= 0 && idx < soundtracks.length - 1) {
+        selectTrack(soundtracks[idx + 1].id);
+    }
 };
 
-const onSeek = (t: number) => {
-    if (audioEl.value) audioEl.value.currentTime = t;
+const onSeekRatio = (ratio: number) => {
+    if (audioEl.value && activeDuration.value) {
+        audioEl.value.currentTime = Math.max(0, Math.min(1, ratio)) * activeDuration.value;
+    }
 };
 
-const onActiveMeta = (payload: { duration: number }) => {
-    if (!activeDuration.value && payload.duration) {
-        activeDuration.value = payload.duration;
+const onTrackMeta = (payload: { id: number; duration: number }) => {
+    if (payload.duration && isFinite(payload.duration)) {
+        trackDurations.value[payload.id] = payload.duration;
     }
 };
 

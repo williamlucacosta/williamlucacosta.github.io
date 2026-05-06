@@ -110,6 +110,7 @@ function draw() {
 
 function onClick(e: MouseEvent) {
     if (!props.interactive || !duration) return;
+    e.stopPropagation();
     const r = rootEl.value;
     if (!r) return;
     const rect = r.getBoundingClientRect();

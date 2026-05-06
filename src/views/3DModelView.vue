@@ -88,16 +88,14 @@ const currentProject = computed(() => {
     display: flex;
     width: 100%;
     height: calc(100vh - 58px);
-    background: var(--bg);
     color: var(--text);
     overflow: hidden;
 }
 
-/* LEFT — viewport */
+/* LEFT — viewport (transparent, aurora bg shows through) */
 .studio-viewport {
     flex: 1;
     position: relative;
-    background: radial-gradient(ellipse at 50% 45%, #0e1426 0%, #070709 78%);
     overflow: hidden;
 }
 
@@ -110,7 +108,7 @@ const currentProject = computed(() => {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: radial-gradient(circle at 50% 50%, transparent 70%, rgba(7, 7, 9, 0.65) 100%);
+    background: radial-gradient(ellipse 90% 75% at 50% 55%, transparent 60%, rgba(4, 5, 10, 0.45) 100%);
 }
 
 /* Floating back button — hairline + sapphire on hover */

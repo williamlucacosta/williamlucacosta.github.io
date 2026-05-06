@@ -3,7 +3,7 @@
         class="pf-tr"
         :class="{ on: isActive, playing: isActive && playing }"
         type="button"
-        @click="$emit('select', id)"
+        @click="onRowClick"
     >
         <span class="pf-tnum">{{ String(id).padStart(2, '0') }}</span>
 
@@ -21,8 +21,10 @@
                 :progress="isActive ? progress : 0"
                 :buckets="64"
                 variant="row"
+                :interactive="seekable"
                 :color="isActive ? 'rgba(106, 166, 255, 0.22)' : 'rgba(238, 242, 251, 0.16)'"
                 :color-played="isActive ? '#6aa6ff' : 'rgba(238, 242, 251, 0.4)'"
+                @seek="onWaveSeek"
                 @meta="onMeta"
             />
         </div>
@@ -49,10 +51,15 @@ const props = defineProps<{
     isActive: boolean;
     playing: boolean;
     progress: number;
+    seekable?: boolean;
 }>();
 
 // eslint-disable-next-line no-undef
-defineEmits<{ (e: 'select', id: number): void }>();
+const emit = defineEmits<{
+    (e: 'select', id: number): void;
+    (e: 'seek-ratio', ratio: number): void;
+    (e: 'meta', payload: { id: number; duration: number }): void;
+}>();
 
 const decodedDuration = ref<number | null>(null);
 
@@ -67,6 +74,16 @@ const audioSrc = computed(() => {
 
 const onMeta = (payload: { duration: number }) => {
     decodedDuration.value = payload.duration;
+    emit('meta', { id: props.id, duration: payload.duration });
+};
+
+const onWaveSeek = (timeSec: number) => {
+    if (!props.seekable || !decodedDuration.value) return;
+    emit('seek-ratio', timeSec / decodedDuration.value);
+};
+
+const onRowClick = () => {
+    emit('select', props.id);
 };
 
 const formattedDuration = computed(() => {
