@@ -7,7 +7,7 @@
         </header>
 
         <section class="pf-work">
-            <div class="pf-grid">
+            <div class="pf-grid" :class="{ 'pf-grid--single': models.length === 1 }">
                 <BaseCard
                     v-for="model in models"
                     :key="model.id"

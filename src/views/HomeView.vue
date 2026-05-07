@@ -44,12 +44,16 @@
 
         <!-- ABOUT -->
         <section id="about" class="pf-bio">
-            <div class="pf-bio-head">
+            <div class="pf-bio-eye-wrap">
+                <span class="pf-bio-rule" aria-hidden="true"></span>
                 <span class="pf-bio-eye">01 / About</span>
+                <span class="pf-bio-rule" aria-hidden="true"></span>
             </div>
             <p class="pf-bio-text">
                 I build small, strange things — games that feel like music, tools that feel like instruments, and worlds that reward being paid attention to.
-                <span class="pf-bio-dim">Currently based in Italy, working across engineering, game design, 3D art and sound. Ten years in, I'm still chasing the feeling of making something that doesn't already exist.</span>
+            </p>
+            <p class="pf-bio-text">
+                Currently based in Italy, working across engineering, game design, 3D art and sound. Ten years in, I'm still chasing the feeling of making something that doesn't already exist.
             </p>
         </section>
 

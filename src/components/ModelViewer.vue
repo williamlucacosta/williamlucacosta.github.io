@@ -222,10 +222,7 @@ function setupLights() {
     topSpot = new THREE.SpotLight(0xffffff, 14, 18, Math.PI * 0.22, 0.7, 1.6);
     topSpot.position.set(0, 8, 1.5);
     topSpot.target.position.set(0, 0, 0);
-    topSpot.castShadow = true;
-    topSpot.shadow.mapSize.set(1024, 1024);
-    topSpot.shadow.bias = -0.0006;
-    topSpot.shadow.radius = 8;
+    topSpot.castShadow = false;
     scene.add(topSpot);
     scene.add(topSpot.target);
 

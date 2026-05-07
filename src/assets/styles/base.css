@@ -498,44 +498,64 @@ body {
    BIO (01 / About)
    ────────────────────────────────────────────── */
 .pf-bio {
-    max-width: 820px;
-    margin: 60px auto 80px;
-    padding: 0 52px;
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 48px;
-    align-items: start;
+    max-width: 720px;
+    margin: 80px auto 90px;
+    padding: 0 32px;
+    text-align: center;
+}
+
+.pf-bio-eye-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 36px;
+}
+
+.pf-bio-rule {
+    flex: 0 0 56px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border-h), transparent);
 }
 
 .pf-bio-eye {
     font-family: var(--fm);
     font-size: 10.5px;
-    letter-spacing: 0.28em;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
     color: var(--text-3);
-    display: inline-block;
-    padding-top: 6px;
+    white-space: nowrap;
 }
 
 .pf-bio-text {
     font-family: var(--fh);
-    font-size: clamp(20px, 2.4vw, 28px);
-    line-height: 1.45;
+    font-size: clamp(19px, 2.1vw, 24px);
+    line-height: 1.55;
     font-weight: 500;
-    letter-spacing: -0.012em;
-    color: var(--text);
+    letter-spacing: -0.008em;
+    color: var(--text-2);
+    margin: 0 auto;
+    max-width: 60ch;
 }
 
-.pf-bio-dim {
-    color: var(--text-2);
+.pf-bio-text + .pf-bio-text {
+    margin-top: 22px;
 }
 
 @media (max-width: 768px) {
     .pf-bio {
-        grid-template-columns: 1fr;
-        gap: 18px;
         padding: 0 24px;
-        margin: 40px auto 60px;
+        margin: 56px auto 64px;
+    }
+    .pf-bio-eye-wrap {
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+    .pf-bio-rule {
+        flex: 0 0 32px;
+    }
+    .pf-bio-text + .pf-bio-text {
+        margin-top: 16px;
     }
 }
 
@@ -706,6 +726,11 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 18px;
+}
+
+.pf-grid--single {
+    grid-template-columns: minmax(0, 560px);
+    justify-content: center;
 }
 
 .pf-card {
